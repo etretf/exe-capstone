@@ -16,9 +16,11 @@
 Capstone project for the IT:IMD program at Carleton University. Includes an interactive VR experience where the user journeys through the life of a box turtle, navigating the dangers brought upon by climate change.<br><br>
 
 
-## Development Guide <br>
+## Development Guide 
+<br><br>
 
 ### Implementation Instructions
+---
 When contributing to the development of the project, please follow the instructions below:
 1. **Select Task** - Navigate to the notion development kanban board and select the task at the top of the list (organized in order of importance)<br><br>
 2. **Mine Requirements** - Research, collect, and document necessary materials from online sources and/or other group members related to the task (e.g., UX design document + objectives, environment credentials, etc.)<br><br>
@@ -38,10 +40,11 @@ When contributing to the development of the project, please follow the instructi
     7.1. **Notify Members** - Post a message into the Discord channel 'dev' about the new implementation<br><br>
 
 ### PR Template
+---
 Please follow the template below when posting a Pull Request (PR) to apply changes on the main branch: 
 
 > ### Title
-> 
+> ---
 > **Corresponding Task:** *(link to notion task and/or task name & id)*
 > 
 > **Overview:** *(1-2 sentences detailing what is being implemented and/or changed)*
@@ -60,6 +63,7 @@ Please follow the template below when posting a Pull Request (PR) to apply chang
 - Each development task in Notion should correspond to **one** PR *(a PR should not include more than one task)*<br><br>
 
 ### Coding Conventions
+---
 Below are guidelines for keeping consistent code formatting across the project: 
 - **Variable Naming**
   - Avoid abbreviations, acronyms, or shortened wordings (e.g., `submit_button` instead of `sbmt_btn`)
@@ -72,9 +76,11 @@ Below are guidelines for keeping consistent code formatting across the project:
 
 
 ### Resource Materials
+---
 *TBD*<br><br>
 
 ### Authors
+---
 **Amina Al-Helali** - Lead Project Manager, Developer, UX Designer
 
 **Aaron Chase** - Lead Developer, Development Manager
