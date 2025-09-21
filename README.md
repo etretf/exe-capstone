@@ -1,3 +1,12 @@
+### Table of Contents
+> [Summary](#summary)<br>
+> [Development Guide](#development-guide-br)<br>
+>     > [Implementation Instructions](#implementation-instructions)<br>
+>     > [PR Template](#pr-template)<br>
+>     > [Coding Conventions](#coding-conventions)<br>
+> [Resource Materials](#resource-materials)<br>
+> [Authors](#authors)<br>
+
 # <INSERT_NAME> by Ebb & Flow Studios
 
 
@@ -22,7 +31,7 @@ When contributing to the development of the project, please follow the instructi
 
 5. **Post PR** - Push all commits and post a PR, following the PR template below<br><br>
 6. **Merge PR** - After 2 approvals and successfully solved all merge conflicts, merge the code into the main branch<br><br>
-7. **Document Task** - Update the status of the task in Notion and add any related documentation for future implementations<br><br>
+7. **Document Task** - Update the status of the task in Notion and add any related documentation for future implementations *(including any external references)*<br><br>
 
     7.1. **Notify Members** - Post a message into the Discord channel 'dev' about the new implementation<br><br>
 
@@ -47,6 +56,21 @@ Please follow the template below when posting a Pull Request (PR) to apply chang
 - Assign corresponding group members as reviewers to the PR (automatically notifies them for a faster review process)
 - Assign the necessary labels (e.g., high/medium/low priority, bug, new feature, etc.)
 - Each development task in Notion should correspond to **one** PR *(a PR should not include more than one task)*<br><br>
+
+### Coding Conventions
+Below are guidelines for keeping consistent code formatting across the project: 
+- **Variable Naming**
+  - Avoid abbreviations, acronyms, or shortened wordings (e.g., `submit_button` instead of `sbmt_btn`)
+  - Use snake casing (e.g., `sum_all_values(..)`)<br><br>
+- **Comments**
+  - Avoid comments where necessary
+    - *Comments quickly become outdated and require constant maintenance since they aren’t checked by the compiler, adding extra work. Relying on them also encourages poor coding practices instead of writing clear, modular, and self-explanatory code.*
+    - Prioritize only adding comments explaining the 'why'. Why this code is needed and/or deviates from traditional implementations
+  - Utilize `TODO` comments to plan and indicate future implementations (useful for not forgetting implementations and/or considerations)<br><br>
+
+
+### Resource Materials
+*TBD*<br><br>
 
 ### Authors
 **Amina Al-Helali** - Lead Project Manager, Developer, UX Designer
