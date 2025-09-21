@@ -7,6 +7,8 @@
 > [Resource Materials](#resource-materials)<br>
 > [Authors](#authors)<br>
 
+<br><br>
+
 # <INSERT_NAME> by Ebb & Flow Studios
 
 
