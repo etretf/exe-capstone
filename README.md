@@ -17,7 +17,7 @@ Capstone project for the IT:IMD program at Carleton University. Includes an inte
 
 
 ## Development Guide 
-<br><br>
+<br>
 
 ### Implementation Instructions
 When contributing to the development of the project, please follow the instructions below:
