@@ -1,9 +1,11 @@
 # <INSERT_NAME> by Ebb & Flow Studios
 
-## Summary
-Capstone project for the IT:IMD program at Carleton University. Includes an interactive VR experience where the user journeys through the life of a box turtle, navigating the dangers brought upon by climate change.
 
-## Development Guide
+## Summary
+Capstone project for the IT:IMD program at Carleton University. Includes an interactive VR experience where the user journeys through the life of a box turtle, navigating the dangers brought upon by climate change.<br><br>
+
+
+## Development Guide <br>
 
 ### Implementation Instructions
 When contributing to the development of the project, please follow the instructions below:
@@ -44,8 +46,7 @@ Please follow the template below when posting a Pull Request (PR) to apply chang
 - Each PR requires at least **2 approvals** in order to be merged into the main branch.
 - Assign corresponding group members as reviewers to the PR (automatically notifies them for a faster review process)
 - Assign the necessary labels (e.g., high/medium/low priority, bug, new feature, etc.)
-- Each development task in Notion should correspond to **one** PR *(a PR should not include more than one task)*
-- Leverage draft PRs to 
+- Each development task in Notion should correspond to **one** PR *(a PR should not include more than one task)*<br><br>
 
 ### Authors
 **Amina Al-Helali** - Lead Project Manager, Developer, UX Designer
