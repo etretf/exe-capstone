@@ -11,46 +11,42 @@ public class ScannerLogic : MonoBehaviour
 
     private OVRCameraRig playerCamera;
     private string currentScannerPosition = "right";
-    private bool isTriggerDown = false;
-    private bool isScannerVisible = false;
 
 
     void Start()
     {
-        playerCamera = GameObject.Find("VR Headset").GetComponent<OVRCameraRig>();
-        tokenText = GameObject.Find("Token Text").GetComponent<TextMeshPro>();
-        tokenText.transform.SetParent(transform);
-        tokenText.transform.position = transform.position + new Vector3(0, 0.1f, 0);
-        tokenText.transform.rotation = transform.rotation;
-        tokenText.transform.Rotate(0, -90, 0);
-        tokenText.text = "Tokens: " + tokens.ToString();
+        toggleScannerVisibility(false);
+        this.playerCamera = GameObject.Find("VR Headset").GetComponent<OVRCameraRig>();
+        this.tokenText = GameObject.Find("Token Text").GetComponent<TextMeshPro>();
+        setTokenTextPosition();
+        
     }
-
     
     void Update()
     {
-        if(leftToggleTrigger()){
-            if(currentScannerPosition != "right" || !isScannerVisible){
-                isTriggerDown = true;
+        try {
+            if(leftToggleTrigger()){
+                toggleScannerVisibility(true);
+                currentScannerPosition = "left";
+            }else if(rightToggleTrigger()){
+                toggleScannerVisibility(true);
+                currentScannerPosition = "right";
+            } else {
+                toggleScannerVisibility(false);
             }
-            currentScannerPosition = "left";
-        }else if(rightToggleTrigger()){
-            if(currentScannerPosition != "left" || !isScannerVisible){
-                isTriggerDown = true;
-            }
-            currentScannerPosition = "right";
+            setScannerPos(currentScannerPosition);
+        } catch (System.Exception e) {
+            Debug.LogError("Error in ScannerLogic: " + e.Message);
         }
-        if(isTriggerDown){
-            toggleScannerVisibility();
-            isTriggerDown = false;
-        }
-        setScannerPos(currentScannerPosition);
-        setTokenTextPosition();
     }
 
-    public void toggleScannerVisibility() {
-        GetComponent<Renderer>().enabled = !isScannerVisible;
-        isScannerVisible = !isScannerVisible;
+    public void toggleScannerVisibility(bool showScanner) {
+        try {
+            GetComponent<Renderer>().enabled = showScanner;
+            this.tokenText.gameObject.GetComponent<Renderer>().enabled = showScanner;
+        } catch (System.Exception e) {
+            Debug.LogError("Error when toggling scanner visibility: " + e.Message);
+        }
     }
 
     public void setScannerPos(string currentScannerPosition){
@@ -66,15 +62,16 @@ public class ScannerLogic : MonoBehaviour
     }
 
     public void setTokenTextPosition(){
-        // tokenText.transform.localRotation= transform.rotation;
-        // tokenText.transform.Rotate(0, -90, 0);
-        // tokenText.transform.localPosition = transform.position + new Vector3(0, 0.1f, 0);
-        
-        
+        this.tokenText.transform.SetParent(transform);
+        this.tokenText.transform.position = transform.position + new Vector3(0, 0.1f, 0);
+        this.tokenText.transform.rotation = transform.rotation;
+        this.tokenText.transform.Rotate(0, -90, 0);
+        this.tokenText.text = "Tokens: " + tokens.ToString();
     }
 
-    public bool leftToggleTrigger() => OVRInput.GetDown(OVRInput.Button.Three);
-    public bool rightToggleTrigger() => OVRInput.GetDown(OVRInput.Button.One);
+    public bool leftToggleTrigger() => OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > triggerThreshold;
+    public bool rightToggleTrigger() => OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) > triggerThreshold;
+    
     public Vector3 rightControllerPosition() => playerCamera.trackingSpace.TransformPoint(OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch));
     public Quaternion rightControllerRotation() => OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch);
     public Vector3 leftControllerPosition() => playerCamera.trackingSpace.TransformPoint(OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch));
