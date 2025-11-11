@@ -15,11 +15,15 @@ public class ScannerLogic : MonoBehaviour
 
     void Start()
     {
+        try {
         toggleScannerVisibility(false);
-        this.playerCamera = GameObject.Find("VR Headset").GetComponent<OVRCameraRig>();
-        this.tokenText = GameObject.Find("Token Text").GetComponent<TextMeshPro>();
-        setTokenTextPosition();
-        
+            this.playerCamera = GameObject.Find("VR Headset").GetComponent<OVRCameraRig>();
+            this.tokenText = GameObject.Find("Scanner Token Text").GetComponent<TextMeshPro>();
+            
+            setTokenTextPosition();
+        } catch (System.Exception e) {
+            Debug.LogError("Error in initializing ScannerLogic: " + e.Message);
+        }
     }
     
     void Update()
@@ -51,21 +55,29 @@ public class ScannerLogic : MonoBehaviour
 
     public void setScannerPos(string currentScannerPosition){
         if(currentScannerPosition == "left"){
-            transform.position = leftControllerPosition();
-            transform.rotation = leftControllerRotation();
+            transform.SetParent(playerCamera.leftHandAnchor, false);
+            transform.localPosition = new Vector3(0, 0, 0);
+            transform.localRotation = Quaternion.identity;
             transform.Rotate(0, 90, 0);
         }else if(currentScannerPosition == "right"){
-            transform.position = rightControllerPosition();
-            transform.rotation = rightControllerRotation();
+            transform.SetParent(playerCamera.rightHandAnchor, false);
+            transform.localPosition = new Vector3(0, 0, 0);
+            transform.localRotation = Quaternion.identity;
             transform.Rotate(0, 90, 0);
         }
     }
 
     public void setTokenTextPosition(){
-        this.tokenText.transform.SetParent(transform);
+        // this.tokenText.autoSizeTextContainer = true;
+        // this.tokenText.enableAutoSizing = true;
+        this.tokenText.transform.SetParent(transform, false);
+        this.tokenText.transform.localScale = Vector3.one;
         this.tokenText.transform.position = transform.position + new Vector3(0, 0.1f, 0);
         this.tokenText.transform.rotation = transform.rotation;
         this.tokenText.transform.Rotate(0, -90, 0);
+        this.tokenText.fontSize = 10f;
+        this.tokenText.autoSizeTextContainer = true;
+        
         this.tokenText.text = "Tokens: " + tokens.ToString();
     }
 
