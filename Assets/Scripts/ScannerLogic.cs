@@ -14,6 +14,13 @@ public class ScannerLogic : MonoBehaviour
     private scannerPosition currentScannerPosition = scannerPosition.right;
     private TextMeshPro tokenText;
 
+    float elapsedTime = 0f;
+    float transferInterval = 0.05f;
+
+    private ParticleSystem tokenTransferParticles;
+    private DoorLogic doorLogic;
+
+
     void Start()
     {
         Debug.Log("ScannerLogic started");
@@ -21,6 +28,8 @@ public class ScannerLogic : MonoBehaviour
             this.toggleScannerVisibility(false);
             initializePlayerCamera();
             initializeTokenText();
+            initializeDoorLogic();
+            initializeTokenTransferParticles();
         } catch (System.Exception e) {
             Debug.LogError("Error in initializing ScannerLogic: " + e.Message);
         }
@@ -42,8 +51,50 @@ public class ScannerLogic : MonoBehaviour
                 toggleScannerVisibility(false);
             }
             this.setScannerPosition();
+
+            if (this.isScannerNearDoor() && this.isScannerVisible() && this.getTokens() > 0) {
+                if (elapsedTime >= transferInterval) {
+                    this.transferTokens();
+                    elapsedTime = 0f;
+                }
+                elapsedTime += Time.deltaTime;
+            }
+
+            this.updateParticleDirectionToDoor();
         } catch (System.Exception e) {
             Debug.LogError("Error in ScannerLogic: " + e.Message);
+        }
+    }
+
+    // Update particle direction to door each frame (makes particles track moving door)
+    private void updateParticleDirectionToDoor(){
+        try {
+            // Only update if particle system exists and has active particles
+            if (tokenTransferParticles == null || doorLogic == null) {
+                return;
+            }
+            
+            // Check if there are any active particles
+            if (!tokenTransferParticles.isPlaying && tokenTransferParticles.particleCount == 0) {
+                return;
+            }
+            
+            // Calculate current direction to door from scanner position
+            Vector3 directionToDoor = (doorLogic.getDoorPosition() - transform.position).normalized;
+            
+            // Update velocity over lifetime to point toward current door position
+            var velocityOverLifetime = tokenTransferParticles.velocityOverLifetime;
+            if (velocityOverLifetime.enabled) {
+                float particleSpeed = 5f; // Adjust speed as needed
+                
+                // Update velocity direction each frame
+                velocityOverLifetime.x = new ParticleSystem.MinMaxCurve(directionToDoor.x * particleSpeed);
+                velocityOverLifetime.y = new ParticleSystem.MinMaxCurve(directionToDoor.y * particleSpeed);
+                velocityOverLifetime.z = new ParticleSystem.MinMaxCurve(directionToDoor.z * particleSpeed);
+            }
+        } catch (System.Exception e) {
+            // Silently fail - don't spam errors if door or particles aren't ready
+            // Debug.LogWarning("Error updating particle direction: " + e.Message);
         }
     }
 
@@ -86,6 +137,55 @@ public class ScannerLogic : MonoBehaviour
 
     private void initializePlayerCamera(){
         this.playerCamera = GameObject.Find("VR Headset")?.GetComponent<OVRCameraRig>();
+    }
+
+    private void initializeDoorLogic(){
+        this.doorLogic = GameObject.Find("Door")?.GetComponent<DoorLogic>();
+    }
+
+    private void initializeTokenTransferParticles(){
+        this.tokenTransferParticles = GetComponent<ParticleSystem>();
+    }
+
+    public void transferTokens(){
+        try {
+
+            if (doorLogic == null) initializeDoorLogic();
+            if (this.tokenTransferParticles == null) initializeTokenTransferParticles();
+
+            
+            Vector3 directionToDoor = (doorLogic.getDoorPosition() - transform.position).normalized;
+            var velocityOverLifetime = this.tokenTransferParticles.velocityOverLifetime;
+            velocityOverLifetime.enabled = true;
+            velocityOverLifetime.space = ParticleSystemSimulationSpace.World;
+
+            // Configure main module first - CRITICAL for proper velocity control
+            var main = tokenTransferParticles.main;
+            main.simulationSpace = ParticleSystemSimulationSpace.World; // Use world space
+            main.startSpeed = 0f; // CRITICAL: Set to 0 so velocity over lifetime controls all movement
+            main.startLifetime = 5f; // Particles live for 5 seconds
+            main.gravityModifier = 0f; // No gravity
+
+            // Set velocity using MinMaxCurve with the direction vector multiplied by speed
+            float particleSpeed = 1f; // Change this value to change speed, NOT direction
+            velocityOverLifetime.x = new ParticleSystem.MinMaxCurve(directionToDoor.x * particleSpeed);
+            velocityOverLifetime.y = new ParticleSystem.MinMaxCurve(directionToDoor.y * particleSpeed);
+            velocityOverLifetime.z = new ParticleSystem.MinMaxCurve(directionToDoor.z * particleSpeed);
+
+
+            this.tokenTransferParticles.Emit(1);
+            this.setTokens(this.getTokens() - 1);
+            this.showTokenText();
+        } catch (System.Exception e) {
+            Debug.LogError("Error in emitting token transfer particles: " + e.Message);
+        }
+    }
+
+    private bool isScannerNearDoor() {
+        if (this.doorLogic == null) initializeDoorLogic();
+        Bounds doorBounds = this.doorLogic.getDoorCollider().bounds;
+        Bounds scannerBounds = this.getScannerCollider().bounds;
+        return doorBounds.Intersects(scannerBounds) || (doorBounds.Contains(scannerBounds.min) && doorBounds.Contains(scannerBounds.max));
     }
 
     public BoxCollider getScannerCollider() => GetComponent<BoxCollider>();

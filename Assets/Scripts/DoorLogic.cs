@@ -22,7 +22,7 @@ public class DoorLogic : MonoBehaviour
     }
 
     void Update(){
-        if (this.openDoor) this.rotateDoor();
+        if (this.numTokensRequired == 0) this.rotateDoor();
     }
 
     private void setDoorText(){
@@ -41,8 +41,19 @@ public class DoorLogic : MonoBehaviour
         if (this.doorHinge.rotation.eulerAngles.y <= -90) this.openDoor = false;
     }
 
+    private void OnParticleCollision(GameObject other) {
+        if (other.name == "Scanner" && this.numTokensRequired > 0) {
+            this.numTokensRequired--;
+            this.showTokenText();
+        }
+    }
+
     public bool getOpenDoor() => this.openDoor;
     public void setOpenDoor(bool openDoor) => this.openDoor = openDoor;
+
+    public Vector3 getDoorPosition() => transform.position;
+
+    public GameObject getDoorGameObject() => gameObject;
 
     public BoxCollider getDoorCollider() => GameObject.Find("Door Detector").GetComponent<BoxCollider>();
 
