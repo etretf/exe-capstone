@@ -1,0 +1,17 @@
+C:\Users\a82ch\Documents\2025_Fall\capstone\dev\exe_blackboxstudios\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\GAToUnityCallbacks.h
+C:\Users\a82ch\Documents\2025_Fall\capstone\dev\exe_blackboxstudios\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\MacroEnd.h
+C:\Users\a82ch\Documents\2025_Fall\capstone\dev\exe_blackboxstudios\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\MacroHeaderBegin.h
+C:\Users\a82ch\Documents\2025_Fall\capstone\dev\exe_blackboxstudios\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\MacroSourceBegin.h
+C:\Users\a82ch\Documents\2025_Fall\capstone\dev\exe_blackboxstudios\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGAApplication.h
+C:\Users\a82ch\Documents\2025_Fall\capstone\dev\exe_blackboxstudios\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGAConfiguration.h
+C:\Users\a82ch\Documents\2025_Fall\capstone\dev\exe_blackboxstudios\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGADebug.h
+C:\Users\a82ch\Documents\2025_Fall\capstone\dev\exe_blackboxstudios\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGAEvents.h
+C:\Users\a82ch\Documents\2025_Fall\capstone\dev\exe_blackboxstudios\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGAInput.h
+C:\Users\a82ch\Documents\2025_Fall\capstone\dev\exe_blackboxstudios\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGASoftKeyboard.h
+C:\Users\a82ch\Documents\2025_Fall\capstone\dev\exe_blackboxstudios\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGASoftKeyboardCallbacks.h
+C:\Users\a82ch\Documents\2025_Fall\capstone\dev\exe_blackboxstudios\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGATypes.h
+C:\Users\a82ch\Documents\2025_Fall\capstone\dev\exe_blackboxstudios\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGAVersion.h
+C:\Users\a82ch\Documents\2025_Fall\capstone\dev\exe_blackboxstudios\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UnityToGACallbacks.h
+C:\Users\a82ch\Documents\2025_Fall\capstone\dev\exe_blackboxstudios\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UnityToGAConfigurationCallbacks.h
+C:\Users\a82ch\Documents\2025_Fall\capstone\dev\exe_blackboxstudios\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UnityToGAKeyEventCallbacks.h
+C:\Users\a82ch\Documents\2025_Fall\capstone\dev\exe_blackboxstudios\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UnityToGAMotionEventCallbacks.h
