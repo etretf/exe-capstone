@@ -7,7 +7,7 @@ public class ScannerLogic : MonoBehaviour
 
     private float triggerThreshold = 0.5f;
     
-    private int tokens = 100;
+    private int tokens = 200;
 
     private OVRCameraRig playerCamera;
     private enum scannerPosition { left, right };
