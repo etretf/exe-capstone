@@ -16,6 +16,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
     //stores generated hallway pieces
     private List<TileData> tiles = new List<TileData>();
 
+    private int correct_rooms_count = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -47,12 +49,14 @@ public class NewMonoBehaviourScript : MonoBehaviour
         //if the previous tile is just space, this one needs a door
         if (prevTile.tileType == TileType.no_door)
         {
-            //TO-DO: implement enum randomaization so we can select random door
+            //TODO: implement enum randomaization so we can select random door
             current_tile.tileType = TileType.door_right;
         }
 
+        //TODO: randomize enum
         current_tile.roomType = RoomType.audio;
-
+    
+        //TODO: randomize enum
         current_tile.lightType = TileLightType.incorrect_shadow;
 
         tiles.Add(current_tile);
