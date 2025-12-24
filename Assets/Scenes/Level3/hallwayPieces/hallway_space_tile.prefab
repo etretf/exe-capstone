@@ -1,12 +1,80 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &7128244880334763820
+--- !u!1 &6475291113189675216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7703580265338185644}
+  - component: {fileID: 1017626534686864382}
+  - component: {fileID: 5910541367570039028}
+  m_Layer: 0
+  m_Name: hallway_space_tile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7703580265338185644
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6475291113189675216}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8781859334962822641}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1017626534686864382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6475291113189675216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e1565a0179c3784793f93cc20c2f5ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
+  index: 0
+--- !u!65 &5910541367570039028
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6475291113189675216}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 3.66, z: 12}
+  m_Center: {x: 0, y: 1.82, z: 0}
+--- !u!1001 &9103419665062124058
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 7703580265338185644}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d2f41501998db2b4ea4cba241a1397f1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d2f41501998db2b4ea4cba241a1397f1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d2f41501998db2b4ea4cba241a1397f1, type: 3}
       propertyPath: m_LocalRotation.y
@@ -58,20 +126,20 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d2f41501998db2b4ea4cba241a1397f1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7507039481813358072}
+      addedObject: {fileID: 8686644035310304918}
   m_SourcePrefab: {fileID: 100100000, guid: d2f41501998db2b4ea4cba241a1397f1, type: 3}
---- !u!1 &7939271246520552061 stripped
+--- !u!1 &8256433087116240715 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d2f41501998db2b4ea4cba241a1397f1, type: 3}
-  m_PrefabInstance: {fileID: 7128244880334763820}
+  m_PrefabInstance: {fileID: 9103419665062124058}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &7507039481813358072
+--- !u!65 &8686644035310304918
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7939271246520552061}
+  m_GameObject: {fileID: 8256433087116240715}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -86,3 +154,8 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 300, y: 363.37494, z: 1200}
   m_Center: {x: 0, y: 181.68747, z: 0}
+--- !u!4 &8781859334962822641 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d2f41501998db2b4ea4cba241a1397f1, type: 3}
+  m_PrefabInstance: {fileID: 9103419665062124058}
+  m_PrefabAsset: {fileID: 0}

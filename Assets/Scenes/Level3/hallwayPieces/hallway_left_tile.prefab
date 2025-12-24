@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4185026822032440641}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7048526, y: -0.05641628, z: -0.05641629, w: 0.70485264}
-  m_LocalPosition: {x: -0.21942008, y: -0.5218501, z: -3}
+  m_LocalPosition: {x: 1.199, y: 2.986, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -136,6 +136,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6041494120113254254}
+  - component: {fileID: 7559126018942737190}
+  - component: {fileID: 8482546754775700067}
   m_Layer: 0
   m_Name: hallway_left_tile
   m_TagString: Untagged
@@ -152,7 +154,7 @@ Transform:
   m_GameObject: {fileID: 7801460644892339550}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.46342, y: 3.12485, z: 3}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -161,6 +163,41 @@ Transform:
   - {fileID: 4002950447585370303}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7559126018942737190
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7801460644892339550}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.98, y: 3.52, z: 6}
+  m_Center: {x: 0, y: 1.78, z: 0}
+--- !u!114 &8482546754775700067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7801460644892339550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e1565a0179c3784793f93cc20c2f5ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
+  index: 0
+  tile_light: {fileID: 2428795773551653409}
 --- !u!1001 &672969068673572199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -171,15 +208,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 215f4186ad49ee247bdd443d79ea072b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.46342
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 215f4186ad49ee247bdd443d79ea072b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.12485
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 215f4186ad49ee247bdd443d79ea072b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 215f4186ad49ee247bdd443d79ea072b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -219,14 +256,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 215f4186ad49ee247bdd443d79ea072b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8589581957937449540}
+      addedObject: {fileID: 7773308209511430972}
   m_SourcePrefab: {fileID: 100100000, guid: 215f4186ad49ee247bdd443d79ea072b, type: 3}
 --- !u!1 &402988726425231414 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 215f4186ad49ee247bdd443d79ea072b, type: 3}
   m_PrefabInstance: {fileID: 672969068673572199}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &8589581957937449540
+--- !u!65 &7773308209511430972
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -262,15 +299,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1010258727543780397, guid: 2314880d79d5bb344bd3f51eb39012ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.15
+      value: 1.669
       objectReference: {fileID: 0}
     - target: {fileID: 1010258727543780397, guid: 2314880d79d5bb344bd3f51eb39012ba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.9684381
+      value: 1.11
       objectReference: {fileID: 0}
     - target: {fileID: 1010258727543780397, guid: 2314880d79d5bb344bd3f51eb39012ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.994
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1010258727543780397, guid: 2314880d79d5bb344bd3f51eb39012ba, type: 3}
       propertyPath: m_LocalRotation.w
