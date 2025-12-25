@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tile
   index: 0
+  tile_light: {fileID: 0}
 --- !u!65 &5910541367570039028
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -66,7 +67,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 3.66, z: 12}
+  m_Size: {x: 3, y: 3.66, z: 4}
   m_Center: {x: 0, y: 1.82, z: 0}
 --- !u!1001 &9103419665062124058
 PrefabInstance:
@@ -127,6 +128,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d2f41501998db2b4ea4cba241a1397f1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8686644035310304918}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d2f41501998db2b4ea4cba241a1397f1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7847863993343553403}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d2f41501998db2b4ea4cba241a1397f1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6459903150480032156}
   m_SourcePrefab: {fileID: 100100000, guid: d2f41501998db2b4ea4cba241a1397f1, type: 3}
 --- !u!1 &8256433087116240715 stripped
 GameObject:
@@ -152,8 +159,50 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 300, y: 363.37494, z: 1200}
-  m_Center: {x: 0, y: 181.68747, z: 0}
+  m_Size: {x: 300, y: 25, z: 600}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &7847863993343553403
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8256433087116240715}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 25, y: 363.37494, z: 600}
+  m_Center: {x: -150, y: 181.68747, z: 0}
+--- !u!65 &6459903150480032156
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8256433087116240715}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 25, y: 363.37494, z: 600}
+  m_Center: {x: 150, y: 181.68747, z: 0}
 --- !u!4 &8781859334962822641 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d2f41501998db2b4ea4cba241a1397f1, type: 3}
