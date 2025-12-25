@@ -10,6 +10,8 @@ public class TileGenerationManager : MonoBehaviour
 
     //constants
     const int MAX_TILES = 10;
+    const int CORRECT_ROOM_MIN_INDEX = 10;
+    const int CORRECT_ROOM_MAX_INDEX = 15;
     public enum TileIndexType
     {
         None,
@@ -23,6 +25,13 @@ public class TileGenerationManager : MonoBehaviour
         RoomType.parasocial,
         RoomType.recreation,
         RoomType.surveillance
+    };
+
+    readonly TileLightType[] availableLights =
+    {
+        TileLightType.incorrect_origin,
+        TileLightType.incorrect_shadow,
+        TileLightType.incorrect_temperature
     };
 
     //hallway pieces
@@ -39,7 +48,7 @@ public class TileGenerationManager : MonoBehaviour
     private List<TileData> tiles = new List<TileData>();
     private List<GameObject> active_tiles = new List<GameObject>();
 
-    private int correct_rooms_count = 0;
+    private int correct_room_tile_index = 0;
     private int current_tile_index = 0;
     private float newest_tile_position = 0;
     private GameObject hallway_end_instance;
@@ -62,6 +71,7 @@ public class TileGenerationManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        correct_room_tile_index = UnityEngine.Random.Range(CORRECT_ROOM_MIN_INDEX, CORRECT_ROOM_MAX_INDEX);
 
         //generate initial tiles
         hallway_end_instance = Instantiate(hallway_end_plane_prefab);
@@ -114,17 +124,42 @@ public class TileGenerationManager : MonoBehaviour
             current_tile.length = hallway_space_tile_prefab_length;
         }
 
-        //TODO: randomize enum
-        RoomType roomType = previous_tile.roomType;
-        while (roomType == previous_tile.roomType)
+        //if this is the nth tile then generate the correct room 
+        bool correct_room_created = false;
+        if((tiles.Count + 1) % correct_room_tile_index == 0)
         {
-            roomType = availableRooms[UnityEngine.Random.Range(0, availableRooms.Length)];
+            if(current_tile.tileType == TileType.no_door)
+            {
+                correct_room_tile_index += 1;
+            } else
+            {
+                current_tile.roomType = RoomType.correct;
+                current_tile.lightType = TileLightType.normal;
+                correct_room_tile_index = UnityEngine.Random.Range(CORRECT_ROOM_MIN_INDEX, CORRECT_ROOM_MAX_INDEX);
+                correct_room_created = true;
+            }
         }
-        current_tile.roomType = roomType;
 
-        //TODO: randomize enum
-        current_tile.lightType = TileLightType.incorrect_shadow;
+        //if a correct room was not created then create a incorrect room
+        if(!correct_room_created)
+        {
+            //get a random incorrect room
+            RoomType roomType = previous_tile.roomType;
+            while (roomType == previous_tile.roomType)
+            {
+                roomType = availableRooms[UnityEngine.Random.Range(0, availableRooms.Length)];
+            }
+            current_tile.roomType = roomType;
 
+            //get a random incorrect light
+            TileLightType lightType = previous_tile.lightType;
+            while (lightType == previous_tile.lightType)
+            {
+                lightType = availableLights[UnityEngine.Random.Range(0, availableLights.Length)];
+            }
+            current_tile.lightType = lightType;
+        }
+        
         tiles.Add(current_tile);
         AddTileToRender(current_tile, (tiles.Count-1), TileIndexType.End);
         UpdateHallwayEnds();
