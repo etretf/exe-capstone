@@ -573,7 +573,7 @@ GameObject:
   - component: {fileID: 808619019}
   - component: {fileID: 808619020}
   m_Layer: 0
-  m_Name: Coderooni
+  m_Name: SpeakerObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -823,7 +823,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MetaVoiceSequencePlayer
   clip1: {fileID: 8300000, guid: 3a1c93e298ae9be4093662ed705bd5eb, type: 3}
   clip2: {fileID: 8300000, guid: 1211858747c45144b914c7204e8de923, type: 3}
-  fetchedClip: {fileID: 0}
   nameText: Emma
   audioSource: {fileID: 2074062595}
   ttsSpeaker: {fileID: 49291725}
@@ -1054,7 +1053,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 808619019}
+      - m_Target: {fileID: 49291725}
         m_TargetAssemblyTypeName: Meta.WitAi.TTS.Utilities.TTSSpeaker, Meta.WitAi.TTS
         m_MethodName: Speak
         m_Mode: 5
@@ -1932,9 +1931,9 @@ MonoBehaviour:
     PrependedText: 
     AppendedText: 
     voice: wit$Rebecca
-    style: default
+    style: formal
     speed: 100
-    pitch: 100
+    pitch: 121
   - SettingsId: WIT$REMI
     PrependedText: 
     AppendedText: 
@@ -2100,11 +2099,11 @@ AudioSource:
   m_GameObject: {fileID: 2074062593}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 7c1fb310e1d055544ba8a88676c0be76, type: 2}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 76c0fb5b70196ec4896aafdec7048999, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.538
+  m_Volume: 0.758
   m_Pitch: 1
   Loop: 0
   Mute: 0
