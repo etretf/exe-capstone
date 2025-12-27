@@ -48,8 +48,8 @@ public class TileGenerationManager : MonoBehaviour
     private List<TileData> tiles = new List<TileData>();
     private List<GameObject> active_tiles = new List<GameObject>();
 
+    public int current_tile_index = 0;
     private int correct_room_tile_index = 0;
-    private int current_tile_index = 0;
     private float newest_tile_position = 0;
     private GameObject hallway_end_instance;
     private GameObject hallway_start_instance;
@@ -306,5 +306,31 @@ public class TileGenerationManager : MonoBehaviour
 
         current_tile_index = tile_index;
     }
+
+    //helper method to access room type at the current index the player is on
+    public RoomType GetRoomTypeAtPlayerLocation()
+    {
+        return tiles[current_tile_index].roomType;
+    }
+
+    //helper method to access tile type at the current tile index the player is on
+    public TileType GetTileTypeAtPlayerLocation()
+    {
+        return tiles[current_tile_index].tileType;
+    }
+
+    //helper method to access position at the current tile index that the player is standing on
+    public float GetPositionAtPlayerLocation()
+    {
+        return tiles[current_tile_index].position;
+    }
+
+    //helper method to access light type at the current index the player is on
+    public TileLightType GetLightTypeAtPlayerLocation()
+    {
+        return tiles[current_tile_index].lightType;
+    }
+
+
 
 }

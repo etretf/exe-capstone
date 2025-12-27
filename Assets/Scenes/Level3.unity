@@ -361,9 +361,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1883230248363655243, guid: 7480a88f6a53640c686d775193fae7a0, type: 3}
+      propertyPath: m_EnableFarCasting
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1883230248363655243, guid: 7480a88f6a53640c686d775193fae7a0, type: 3}
+      propertyPath: m_AllowHoveredActivate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3074471628601745017, guid: 7480a88f6a53640c686d775193fae7a0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053579577978487484, guid: 7480a88f6a53640c686d775193fae7a0, type: 3}
+      propertyPath: m_CastRadius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5456733348963664102, guid: 7480a88f6a53640c686d775193fae7a0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6232745470614056090, guid: 7480a88f6a53640c686d775193fae7a0, type: 3}
       propertyPath: m_Radius
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436123941575367715, guid: 7480a88f6a53640c686d775193fae7a0, type: 3}
+      propertyPath: m_CastRadius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8877177980677234388, guid: 7480a88f6a53640c686d775193fae7a0, type: 3}
+      propertyPath: m_EnableFarCasting
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8877177980677234388, guid: 7480a88f6a53640c686d775193fae7a0, type: 3}
+      propertyPath: m_AllowHoveredActivate
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
