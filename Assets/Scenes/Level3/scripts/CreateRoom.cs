@@ -1,6 +1,10 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class CreateRoom : MonoBehaviour
 {
-    CreateAssetMenuAttribute 
+    public void Create()
+    {
+        RoomManager.Instance.CreateRoom();
+    }
 }

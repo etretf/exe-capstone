@@ -119,6 +119,56 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &249051739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 249051741}
+  - component: {fileID: 249051740}
+  m_Layer: 0
+  m_Name: room_manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &249051740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249051739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9a72cf40b0e614784db3be7e175f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RoomManager
+  correct_room_prefab: {fileID: 723196612286560058, guid: 9a8982bec4fc36b42b44a9b896bc45db, type: 3}
+  parasocial_room_prefab: {fileID: 723196612286560058, guid: 46ee35dfca7aa6941a7a6e3c5303d235, type: 3}
+  audio_room_prefab: {fileID: 723196612286560058, guid: 45e16c243e788134bb819df97ac28111, type: 3}
+  surveillance_room_prefab: {fileID: 723196612286560058, guid: b2fdf0a124af16b46927875975f55fee, type: 3}
+  recreation_room_prefab: {fileID: 723196612286560058, guid: bc9bb18c39a3e8447aeb9bc9caf878b7, type: 3}
+  dimensionData: {fileID: 11400000, guid: 117896cb690fbfa47868b1c9bf49cc52, type: 2}
+--- !u!4 &249051741
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249051739}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.13349, y: 0, z: -17.62444}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &299639867
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,13 +325,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fad88ad64ff79344a336da57f0d8275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
-  hallway_tile_left_prefab: {fileID: 7801460644892339550, guid: 82c709e805be409438d7b0c03277dcf4, type: 3}
-  hallway_tile_right_prefab: {fileID: 3442910375217275984, guid: fb2b05765c5374046aebdd3a15230d2b, type: 3}
+  hallway_tile_left_prefab: {fileID: 3442910375217275984, guid: fb2b05765c5374046aebdd3a15230d2b, type: 3}
+  hallway_tile_right_prefab: {fileID: 7801460644892339550, guid: 82c709e805be409438d7b0c03277dcf4, type: 3}
   hallway_space_tile_prefab: {fileID: 6475291113189675216, guid: b254a279925416348a09f5ef54abc533, type: 3}
   hallway_end_plane_prefab: {fileID: 7620604226269368838, guid: bd2437021ba47ea40a78464d76432bc8, type: 3}
   hallway_tile_left_prefab_length: 3
   hallway_tile_right_prefab_length: 3
   hallway_space_tile_prefab_length: 6
+  current_tile_index: 0
 --- !u!4 &386438717
 Transform:
   m_ObjectHideFlags: 0
@@ -502,7 +553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -606,3 +657,4 @@ SceneRoots:
   - {fileID: 2092139010}
   - {fileID: 386438717}
   - {fileID: 1078118766}
+  - {fileID: 249051741}
