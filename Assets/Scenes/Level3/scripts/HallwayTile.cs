@@ -20,6 +20,8 @@ public class HallwayTile : MonoBehaviour
             tile_light.enabled = true;
         }
 
+        GameManager.Instance.SetPlayerInHallway();
+
         int previous_tile_index = TileGenerationManager.Instance.current_tile_index;
         if (index != previous_tile_index)
         {
