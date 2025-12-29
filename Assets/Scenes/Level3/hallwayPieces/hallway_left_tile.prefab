@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Tile
   index: 0
   tile_light: {fileID: 5424384227559146046}
+  door: {fileID: 0}
 --- !u!65 &7701565810936174087
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -55,6 +55,7 @@ public class TileGenerationManager : MonoBehaviour
     private GameObject hallway_start_instance;
     private TileType last_door_tile_type;
 
+
     private void Awake()
     {
         Instance = this;
@@ -200,32 +201,9 @@ public class TileGenerationManager : MonoBehaviour
         {
             case TileIndexType.Start:
                 active_tiles.Insert(0, tile_prefab);
-                ////move hallway closing planes
-                //int last_tile_index = active_tiles[active_tiles.Count-1].GetComponent<HallwayTile>().index;
-                //hallway_end_instance.transform.position = new Vector3(0, 0, tiles[last_tile_index].position - tiles[last_tile_index].length / 2f);
-                //if (tile_index != 0)
-                //{
-                //    hallway_start_instance.SetActive(true);
-                //    hallway_start_instance.transform.position = new Vector3(0, 0, tile.position - extra_tile_width);
-                //} else
-                //{
-                //    hallway_start_instance.SetActive(false);
-                //}
                 break;
             case TileIndexType.End:
                 active_tiles.Add(tile_prefab);
-                ////move hallway closing planes
-                //hallway_end_instance.transform.position = new Vector3(0, 0, tile.position + extra_tile_width);
-
-                //int first_tile_index = active_tiles[0].GetComponent<HallwayTile>().index;
-                //if (first_tile_index != 0)
-                //{
-                //    hallway_start_instance.SetActive(true);
-                //    hallway_start_instance.transform.position = new Vector3(0, 0, tiles[first_tile_index].position - tiles[first_tile_index].length/2f);
-                //} else
-                //{
-                //    hallway_start_instance.SetActive(false);
-                //}
                 break;
             default:
                 break;
@@ -307,6 +285,11 @@ public class TileGenerationManager : MonoBehaviour
         current_tile_index = tile_index;
     }
 
+    //private GameObject GetCurrentActiveTileInstance()
+    //{
+    //    return active_tiles.Find(active_tile => active_tile.GetComponent<HallwayTile>().index == current_tile_index);
+    //}
+
     //helper method to access room type at the current index the player is on
     public RoomType GetRoomTypeAtPlayerLocation()
     {
@@ -331,6 +314,18 @@ public class TileGenerationManager : MonoBehaviour
         return tiles[current_tile_index].lightType;
     }
 
+    //helper to return the door that belongs to the current tile
+    public Door GetDoorOfCurrentTile()
+    {
+        GameObject current_tile = active_tiles.Find(active_tile => active_tile.GetComponent<HallwayTile>().index == current_tile_index);
+        return current_tile.GetComponentInChildren<Door>();
+    }
 
+    //helper to return the door that belongs to a specific active tile
+    public Door GetDoorAtIndex(int tile_index)
+    {
+        GameObject tile_at_index = active_tiles.Find(active_tile => active_tile.GetComponent<HallwayTile>().index == tile_index);
+        return tile_at_index.GetComponentInChildren<Door>();
+    }
 
 }
