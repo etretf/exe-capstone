@@ -1,11 +1,17 @@
 using UnityEngine;
+using System.Collections;
+using System;
 
 public class Door : MonoBehaviour
 {
+    public LevelDelays level_delays;
+    [SerializeField] private Canvas control_instructions;
+
     private bool is_door_closed = true;
     private float original_door_pos_x;
     private float original_door_pos_y;
     private float original_door_pos_z;
+    private Coroutine delayDoorOpenCoroutine;
 
     public void Start()
     {
@@ -14,29 +20,54 @@ public class Door : MonoBehaviour
         original_door_pos_z = gameObject.transform.position.z;
     }
 
-    //opens the door
-    //TODO: if there is time randomize the animation each time to create variety
+    // Opens the door
+    // TODO: if there is time randomize the animation each time to create variety
     public void OpenDoor()
     {
         if(is_door_closed)
         {
-            gameObject.transform.position = new Vector3(original_door_pos_x, original_door_pos_y, original_door_pos_z + 1.6f);
             is_door_closed = false;
+            delayDoorOpenCoroutine = StartCoroutine(DelayDoorOpen());
         }
     }
 
-    //closes the door
-    //TODO: if there is time randomize the animation each time to create variety
+    // Closes the door
+    // TODO: if there is time randomize the animation each time to create variety
     public void CloseDoor()
     {
         if(!is_door_closed)
         {
+            StopCoroutine(delayDoorOpenCoroutine);
+            delayDoorOpenCoroutine = null;
             gameObject.transform.position = new Vector3(original_door_pos_x, original_door_pos_y, original_door_pos_z);
             is_door_closed = true;
         }
     }
 
-    //helper method to check if a door is closed or open
+    //show door instructions
+    public void DisplayDoorControls()
+    {
+        if(is_door_closed && GameManager.Instance.GetIsPlayerInHallway())
+        {
+            control_instructions.gameObject.SetActive(true);
+        }
+    }
+
+    //hide door instructions
+    public void HideDoorControls()
+    {
+        control_instructions.gameObject.SetActive(false);
+    }
+
+    // open door after 3 seconds
+    IEnumerator DelayDoorOpen()
+    {
+        yield return new WaitForSeconds(level_delays.door_open_delay_seconds);
+        gameObject.transform.position = new Vector3(original_door_pos_x, original_door_pos_y, original_door_pos_z + 1.6f);
+
+    }
+
+    // helper method to check if a door is closed or open
     public bool IsDoorClosed()
     {
         return is_door_closed;

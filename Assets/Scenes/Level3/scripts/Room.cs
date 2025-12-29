@@ -8,7 +8,9 @@ public class Room : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(door != null && !door.IsDoorClosed())
+        GameManager.Instance.SetPlayerNotInHallway(); 
+
+        if (door != null && !door.IsDoorClosed())
         {
             door.CloseDoor();
         }
