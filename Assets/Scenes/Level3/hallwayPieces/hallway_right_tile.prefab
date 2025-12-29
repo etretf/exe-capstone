@@ -198,6 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Tile
   index: 0
   tile_light: {fileID: 2428795773551653409}
+  door: {fileID: 0}
 --- !u!1001 &1539355196069301820
 PrefabInstance:
   m_ObjectHideFlags: 0

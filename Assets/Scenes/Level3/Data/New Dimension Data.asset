@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68953ab68f6ff4d499282488e97973e4, type: 3}
   m_Name: New Dimension Data
   m_EditorClassIdentifier: Assembly-CSharp::DimensionData
-  tile_door_length: 0
-  tile_width: 0
-  tile_no_door_length: 0
-  room_width: 0
+  tile_door_length: 3
+  tile_width: 3
+  tile_no_door_length: 6
+  room_width: 6

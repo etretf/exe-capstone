@@ -148,12 +148,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9a72cf40b0e614784db3be7e175f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomManager
-  correct_room_prefab: {fileID: 723196612286560058, guid: 9a8982bec4fc36b42b44a9b896bc45db, type: 3}
-  parasocial_room_prefab: {fileID: 723196612286560058, guid: 46ee35dfca7aa6941a7a6e3c5303d235, type: 3}
+  correct_room_prefab: {fileID: 723196612286560058, guid: 86a5ecb5662bbcf4a9b6a43bc8f4cf5c, type: 3}
+  parasocial_room_prefab: {fileID: 723196612286560058, guid: a554c39460d9807428af0c1016a2d778, type: 3}
   audio_room_prefab: {fileID: 723196612286560058, guid: 45e16c243e788134bb819df97ac28111, type: 3}
-  surveillance_room_prefab: {fileID: 723196612286560058, guid: b2fdf0a124af16b46927875975f55fee, type: 3}
-  recreation_room_prefab: {fileID: 723196612286560058, guid: bc9bb18c39a3e8447aeb9bc9caf878b7, type: 3}
-  dimensionData: {fileID: 11400000, guid: 117896cb690fbfa47868b1c9bf49cc52, type: 2}
+  surveillance_room_prefab: {fileID: 723196612286560058, guid: 88772020df65b784bb27892310e67b94, type: 3}
+  recreation_room_prefab: {fileID: 723196612286560058, guid: 54c0207229bbcfd41b6a341574ab1cef, type: 3}
+  dimensionData: {fileID: 11400000, guid: 7585abad8d17acc44be2520f90a34b18, type: 2}
 --- !u!4 &249051741
 Transform:
   m_ObjectHideFlags: 0

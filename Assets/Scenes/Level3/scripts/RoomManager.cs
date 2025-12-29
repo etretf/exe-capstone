@@ -14,6 +14,7 @@ public class RoomManager : MonoBehaviour
    
     private GameObject createdRoom;
     public DimensionData dimensionData;
+    private bool is_room_exists = false;
 
     private void Awake()
     {
@@ -33,6 +34,7 @@ public class RoomManager : MonoBehaviour
         RoomType room = TileGenerationManager.Instance.GetRoomTypeAtPlayerLocation();
         TileType tile = TileGenerationManager.Instance.GetTileTypeAtPlayerLocation();
         float z_position = TileGenerationManager.Instance.GetPositionAtPlayerLocation();
+        Door tile_door = TileGenerationManager.Instance.GetDoorOfCurrentTile();
 
         float x_position = -1 * dimensionData.tile_width/2;
         float rotation = 0;
@@ -68,14 +70,23 @@ public class RoomManager : MonoBehaviour
 
         createdRoom.transform.position = new Vector3(x_position, 0, z_position);
         createdRoom.transform.Rotate(0, rotation, 0);
+        createdRoom.GetComponent<Room>().door = tile_door;
+        is_room_exists = true;
     }
 
     //destroy the current room if it exists 
     public void DestroyRoom()
     {
-        if(createdRoom != null)
+        if(createdRoom != null && is_room_exists)
         {
             Destroy(createdRoom);
+            is_room_exists = false;
         }
+    }
+
+    //helper method to check if a room exits
+    public bool DoesRoomExist()
+    {
+        return is_room_exists;
     }
 }
