@@ -5,18 +5,13 @@ public class HallwayTile : MonoBehaviour
 {
     public int index;
     [SerializeField] Light tile_light;
+    private Door door;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        door = gameObject.GetComponentInChildren<Door>();
     }
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-
-    //}
 
     private void OnTriggerEnter(UnityEngine.Collider other)
     {
@@ -24,8 +19,20 @@ public class HallwayTile : MonoBehaviour
         {
             tile_light.enabled = true;
         }
-        TileGenerationManager.Instance.UpdateTilesToRender(index);
-        
+
+        GameManager.Instance.SetPlayerInHallway();
+
+        int previous_tile_index = TileGenerationManager.Instance.current_tile_index;
+        if (index != previous_tile_index)
+        {
+            //get previous tile door before doing everything else
+            TileGenerationManager.Instance.UpdateTilesToRender(index);
+            if (RoomManager.Instance.DoesRoomExist())
+            {
+                TileGenerationManager.Instance.GetDoorAtIndex(previous_tile_index).CloseDoor();
+                RoomManager.Instance.DestroyRoom();
+            }
+        }
     }
 
     private void OnTriggerExit(UnityEngine.Collider other)
@@ -34,5 +41,6 @@ public class HallwayTile : MonoBehaviour
         {
             tile_light.enabled = false;
         }
+        
     }
 }
