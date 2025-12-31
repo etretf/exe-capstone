@@ -329,9 +329,7 @@ MonoBehaviour:
   hallway_tile_right_prefab: {fileID: 7801460644892339550, guid: 82c709e805be409438d7b0c03277dcf4, type: 3}
   hallway_space_tile_prefab: {fileID: 6475291113189675216, guid: b254a279925416348a09f5ef54abc533, type: 3}
   hallway_end_plane_prefab: {fileID: 7620604226269368838, guid: bd2437021ba47ea40a78464d76432bc8, type: 3}
-  hallway_tile_left_prefab_length: 3
-  hallway_tile_right_prefab_length: 3
-  hallway_space_tile_prefab_length: 6
+  dimensionData: {fileID: 11400000, guid: 7585abad8d17acc44be2520f90a34b18, type: 2}
   current_tile_index: 0
 --- !u!4 &386438717
 Transform:
