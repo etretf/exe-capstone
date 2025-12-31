@@ -40,10 +40,7 @@ public class TileGenerationManager : MonoBehaviour
     [SerializeField] GameObject hallway_space_tile_prefab;
     [SerializeField] GameObject hallway_end_plane_prefab;
 
-    //hallway pieces length
-    [SerializeField] float hallway_tile_left_prefab_length;
-    [SerializeField] float hallway_tile_right_prefab_length;
-    [SerializeField] float hallway_space_tile_prefab_length;
+    public DimensionData dimensionData;
 
     private List<TileData> tiles = new List<TileData>();
     private List<GameObject> active_tiles = new List<GameObject>();
@@ -82,15 +79,14 @@ public class TileGenerationManager : MonoBehaviour
         hallway_start_instance.SetActive(false);
         
 
-        tiles.Add(new TileData(TileType.no_door, RoomType.none, TileLightType.none, newest_tile_position, hallway_space_tile_prefab_length));
+        tiles.Add(new TileData(TileType.no_door, RoomType.none, TileLightType.none, newest_tile_position, dimensionData.tile_no_door_length));
         AddTileToRender(tiles[0], 0, TileIndexType.End);
 
-        newest_tile_position += (hallway_space_tile_prefab_length / 2f + hallway_tile_left_prefab_length / 2f);
-        tiles.Add(new TileData(TileType.door_left, RoomType.audio, TileLightType.incorrect_shadow, newest_tile_position, hallway_tile_left_prefab_length));
+        newest_tile_position += (dimensionData.tile_no_door_length / 2f + dimensionData.tile_door_length / 2f);
+        tiles.Add(new TileData(TileType.door_left, RoomType.audio, TileLightType.incorrect_shadow, newest_tile_position, dimensionData.tile_door_length));
         last_door_tile_type = TileType.door_left;
         AddTileToRender(tiles[1], 1, TileIndexType.End);
         current_tile_index = 1;
-
 
         for (int i = 0; i < (MAX_TILES/2)-3; i++) {
             CreateTile();
@@ -114,15 +110,15 @@ public class TileGenerationManager : MonoBehaviour
         {
             current_tile.tileType = last_door_tile_type == TileType.door_left ? TileType.door_right : TileType.door_left;
             last_door_tile_type = current_tile.tileType;
-            newest_tile_position += (previous_tile.length / 2f + hallway_tile_right_prefab_length / 2f);
+            newest_tile_position += (previous_tile.length / 2f + dimensionData.tile_door_length / 2f);
             current_tile.position = newest_tile_position;
-            current_tile.length = hallway_tile_right_prefab_length;
+            current_tile.length = dimensionData.tile_door_length;
         } else
         {
             current_tile.tileType = TileType.no_door;
-            newest_tile_position += (previous_tile.length / 2f + hallway_space_tile_prefab_length / 2f);
+            newest_tile_position += (previous_tile.length / 2f + dimensionData.tile_no_door_length / 2f);
             current_tile.position = newest_tile_position;
-            current_tile.length = hallway_space_tile_prefab_length;
+            current_tile.length = dimensionData.tile_no_door_length;
         }
 
         //if this is the nth tile then generate the correct room 
@@ -175,15 +171,15 @@ public class TileGenerationManager : MonoBehaviour
         {
             case TileType.no_door:
                 tile_prefab = Instantiate(hallway_space_tile_prefab);
-                extra_tile_width = hallway_space_tile_prefab_length / 2f;
+                extra_tile_width = dimensionData.tile_no_door_length / 2f;
                 break;
             case TileType.door_left:
                 tile_prefab = Instantiate(hallway_tile_left_prefab);
-                extra_tile_width = hallway_tile_left_prefab_length / 2f;
+                extra_tile_width = dimensionData.tile_door_length / 2f;
                 break;
             case TileType.door_right:
                 tile_prefab = Instantiate(hallway_tile_right_prefab);
-                extra_tile_width = hallway_tile_right_prefab_length / 2f;
+                extra_tile_width = dimensionData.tile_door_length / 2f;
                 break;
             default:
                 Debug.LogError("Invalid tile type!", this);
