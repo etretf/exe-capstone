@@ -1,21 +1,27 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueSystem : MonoBehaviour
+public class DialogueSystemDemo : MonoBehaviour
 {
-
-    public static DialogueSystem instance;
+    public static DialogueSystemDemo instance;
 
     [Header("Dependencies")]
     public AudioSource audioSource;
+    public Image facialExpressionImage;
+    public TextMeshProUGUI delayBefore;
+    public TextMeshProUGUI delayAfter;
     private FaceAnimator faceAnimator;
 
 
     [Header("Dialogue Input")]
+    public List<Sprite> coderooniFacialExpressions = new List<Sprite>();
+
     public List<DialogueLine> dialogueLines = new List<DialogueLine>();
+
     private Coroutine dialogueRoutine;
 
     private void Awake()
@@ -53,6 +59,7 @@ public class DialogueSystem : MonoBehaviour
 
     public void startDialogue()
     {
+        Debug.Log("start dialogue");
         dialogueRoutine = StartCoroutine(playDialogueLines());
     }
 
@@ -62,6 +69,9 @@ public class DialogueSystem : MonoBehaviour
         {
             DialogueLine line = dialogueLines[i];
 
+            delayBefore.text = "Before: " + line.delayBefore.ToString() + " s";
+            delayAfter.text = "After: " + line.delayAfter.ToString() + " s";
+
             if (line.delayBefore > 0)
             {
                 yield return new WaitForSeconds(line.delayBefore);
@@ -69,6 +79,7 @@ public class DialogueSystem : MonoBehaviour
 
             audioSource.clip = line.clip;
             audioSource.Play();
+            facialExpressionImage.sprite = coderooniFacialExpressions[(int) line.expression];
             faceAnimator.setFaceSprite(line.expression);
 
             yield return new WaitForSeconds(line.clip.length);
@@ -79,18 +90,10 @@ public class DialogueSystem : MonoBehaviour
             }
         }
 
+        delayBefore.text = "";
+        delayAfter.text = "";
+        facialExpressionImage.sprite = null;
+
         faceAnimator.clearFacialExpression();
     }
-}
-
-[Serializable] public class DialogueLine
-{
-    public CoderooniConstants CoderooniConstants;
-    public AudioClip clip;
-    public CoderooniConstants.CODEROONI_FACIAL_EXPRESSIONS expression;
-    public bool speakPlayerNameAfter = false;
-
-    [Header("Timing settings")]
-    public float delayBefore = 0.0f;
-    public float delayAfter = 0.0f;
 }
