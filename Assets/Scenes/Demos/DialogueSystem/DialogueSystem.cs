@@ -56,6 +56,11 @@ public class DialogueSystem : MonoBehaviour
         dialogueRoutine = StartCoroutine(playDialogueLines());
     }
 
+    public void clearDialogueLines()
+    {
+        dialogueLines.Clear();
+    }
+
     IEnumerator playDialogueLines()
     {
         for (int i = 0; i < dialogueLines.Count; i++)
