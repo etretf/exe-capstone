@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: d95a0b6025949434ab90b362e6a589cf
+guid: 3e26df4a8e8f548479a9d04b7069fb04
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hallway_bones
+    second: {fileID: 2100000, guid: 86cfdcf894c684949a50a0ad291aa4c2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hallway_wallsFloor
+    second: {fileID: 2100000, guid: ecb997f4cdfa61f4c8cb060569041fcc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
