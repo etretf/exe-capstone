@@ -1,6 +1,8 @@
+using Meta.WitAi.TTS.Utilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,13 +16,17 @@ public class DialogueSystemDemo : MonoBehaviour
     public Image facialExpressionImage;
     public TextMeshProUGUI delayBefore;
     public TextMeshProUGUI delayAfter;
+    public TTSSpeaker ttsSpeaker;
+    public PlayerDataManager playerDataManager;
     private FaceAnimator faceAnimator;
+    private string playerName;
+    private float nameSpeakTime = 2.0f;
 
 
     [Header("Dialogue Input")]
     public List<Sprite> coderooniFacialExpressions = new List<Sprite>();
 
-    public List<DialogueLine> dialogueLines = new List<DialogueLine>();
+    public List<DialogueLines> dialogueBundles = new List<DialogueLines>();
 
     private Coroutine dialogueRoutine;
 
@@ -41,6 +47,7 @@ public class DialogueSystemDemo : MonoBehaviour
     {
         faceAnimator = GetComponent<FaceAnimator>();
         audioSource = GetComponent<AudioSource>();
+        playerName = playerDataManager.playerName;
     }
 
 
@@ -57,24 +64,26 @@ public class DialogueSystemDemo : MonoBehaviour
         audioSource.Stop();
     }
 
-    public void startDialogue()
+    public void startDialogue(int idx)
     {
-        Debug.Log("start dialogue");
-        dialogueRoutine = StartCoroutine(playDialogueLines());
+        // Trigger a bundle of dialogue lines in the list by the index
+        // A bundle is a list of dialogue lines
+        dialogueRoutine = StartCoroutine(playDialogueLines(idx));
     }
 
-    IEnumerator playDialogueLines()
+    IEnumerator playDialogueLines(int idx)
     {
-        for (int i = 0; i < dialogueLines.Count; i++)
+        List<DialogueLine> lines = dialogueBundles[idx].lines;
+        for (int i = 0; i < lines.Count; i++)
         {
-            DialogueLine line = dialogueLines[i];
+            DialogueLine line = lines[i];
 
             delayBefore.text = "Before: " + line.delayBefore.ToString() + " s";
             delayAfter.text = "After: " + line.delayAfter.ToString() + " s";
 
             if (line.delayBefore > 0)
             {
-                yield return new WaitForSeconds(line.delayBefore);
+                yield return new WaitForSeconds(line.delayBefore - 0.02f);
             }
 
             audioSource.clip = line.clip;
@@ -83,6 +92,12 @@ public class DialogueSystemDemo : MonoBehaviour
             faceAnimator.setFaceSprite(line.expression);
 
             yield return new WaitForSeconds(line.clip.length);
+
+            if (line.speakPlayerNameAfter == true)
+            {
+                ttsSpeaker.Speak(playerName);
+                yield return new WaitForSeconds(nameSpeakTime);
+            }
 
             if (line.delayAfter > 0)
             {
