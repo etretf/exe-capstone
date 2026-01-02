@@ -9,7 +9,7 @@
 
 <br><br>
 
-# <INSERT_NAME> by Ebb & Flow Studios
+# <INSERT_NAME> by Black Box Studios
 
 
 ## Summary
