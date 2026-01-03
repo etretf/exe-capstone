@@ -44,7 +44,7 @@ public class Door : MonoBehaviour
         if(!is_door_closed)
         {
             audio_src.clip = door_close_sfx;
-            audio_src.Stop();
+            audio_src.Play();
             StopCoroutine(delayDoorOpenCoroutine);
             delayDoorOpenCoroutine = null;
             gameObject.transform.position = new Vector3(original_door_pos_x, original_door_pos_y, original_door_pos_z);
