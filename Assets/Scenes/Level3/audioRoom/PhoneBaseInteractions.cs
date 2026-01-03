@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class PhoneBaseInteractions : MonoBehaviour
 {
@@ -7,9 +9,8 @@ public class PhoneBaseInteractions : MonoBehaviour
         AudioRoomManager.Instance.PlayAudio();
     }
 
-    //TODO
     public void PlaceDownPhone()
     {
-        AudioRoomManager.Instance.PlayAudio();
+        AudioRoomManager.Instance.DisablePhoneInteraction();
     }
 }
