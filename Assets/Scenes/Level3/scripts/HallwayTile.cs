@@ -12,7 +12,7 @@ public class HallwayTile : MonoBehaviour
     public AudioClip door_open_sfx;
     public AudioClip door_close_sfx;
     public AudioClip light_hum_start_sfx;
-    public AudioClip light_hum_sfx;
+    public AudioClip[] light_hum_clips_sfx;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -56,7 +56,7 @@ public class HallwayTile : MonoBehaviour
 
         yield return new WaitForSeconds(light_hum_start_sfx.length);
 
-        light_audio_src.clip = light_hum_sfx;
+        light_audio_src.clip = light_hum_clips_sfx[Random.Range(0, light_hum_clips_sfx.Length)];
         light_audio_src.loop = true;
         light_audio_src.Play();
     }

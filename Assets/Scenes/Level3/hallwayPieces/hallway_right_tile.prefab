@@ -351,7 +351,10 @@ MonoBehaviour:
   door_open_sfx: {fileID: 8300000, guid: 2e64bb668af01eb46b93a9790ff20073, type: 3}
   door_close_sfx: {fileID: 8300000, guid: b03f46e9fd5847c4f9f5cd7fb1bac4d5, type: 3}
   light_hum_start_sfx: {fileID: 8300000, guid: d0b45b1c546b85747b9bd4ba3edc3d60, type: 3}
-  light_hum_sfx: {fileID: 8300000, guid: 3427ac183c6753f4f8b9a9be68959585, type: 3}
+  light_hum_clips_sfx:
+  - {fileID: 8300000, guid: 9d14212becfca7142a1bc191716a69cf, type: 3}
+  - {fileID: 8300000, guid: 83aedd9f8ed13aa4bb27152c579f237d, type: 3}
+  - {fileID: 8300000, guid: 2c128344e8c4d1941a4dd0891639c9d0, type: 3}
 --- !u!1 &9144107046060123396
 GameObject:
   m_ObjectHideFlags: 0
