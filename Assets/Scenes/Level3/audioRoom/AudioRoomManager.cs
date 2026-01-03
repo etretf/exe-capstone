@@ -21,6 +21,7 @@ public class AudioRoomManager : MonoBehaviour
     private float static_clip_time_passed = 0f;
     private Coroutine conversation_end;
     private GameObject head_trigger;
+    private bool can_grab = true;
     private void Awake()
     {
         Instance = this;
@@ -36,6 +37,9 @@ public class AudioRoomManager : MonoBehaviour
 
     public void PlayAudio()
     {
+        if (is_audio_complete)
+            return;
+
         head_trigger = GameObject.FindWithTag("Head");
         head_trigger.GetComponent<Collider>().enabled = true;
         phone_base_socket.enabled = false;
@@ -108,5 +112,15 @@ public class AudioRoomManager : MonoBehaviour
         //phone.interactionLayers = 0;
         //phone_base_socket.interactionLayers = 0;
         //phone_base_socket.enabled = false;
+    }
+
+    public void SetCanRelease(bool enable)
+    {
+        can_grab = enable;
+    }
+
+    public bool GetCanRelease()
+    {
+        return can_grab;
     }
 }

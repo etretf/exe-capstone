@@ -192,9 +192,9 @@ GameObject:
   m_Component:
   - component: {fileID: 9126698605562852742}
   - component: {fileID: 9087060003006386507}
-  - component: {fileID: 1008272342411985652}
   - component: {fileID: 8804745010949325395}
   - component: {fileID: 3202147003071604433}
+  - component: {fileID: 26344352277067340}
   m_Layer: 0
   m_Name: PF_phone
   m_TagString: Phone
@@ -247,7 +247,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1008272342411985652
+--- !u!65 &8804745010949325395
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8583645400430843317}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.2, y: 0.04, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3202147003071604433
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -256,9 +277,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 8583645400430843317}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Script: {fileID: 11500000, guid: b7058d39d595d6745afc374d9678dcc6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable
+  m_EditorClassIdentifier: Assembly-CSharp::Phone
+--- !u!114 &26344352277067340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8583645400430843317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed02081ace6ea74ab9f6f3ffcbd02f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::XRGrabExtension
   m_InteractionManager: {fileID: 0}
   m_Colliders:
   - {fileID: 2401359416847378174}
@@ -375,39 +408,6 @@ MonoBehaviour:
   m_LimitAngularVelocity: 0
   m_MaxLinearVelocityDelta: 10
   m_MaxAngularVelocityDelta: 20
---- !u!65 &8804745010949325395
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8583645400430843317}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.2, y: 0.04, z: 0.1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3202147003071604433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8583645400430843317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7058d39d595d6745afc374d9678dcc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Phone
 --- !u!1001 &2263390727625873660
 PrefabInstance:
   m_ObjectHideFlags: 0

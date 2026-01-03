@@ -87,7 +87,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioRoomManager
   static_clip: {fileID: 8300000, guid: 4c610951cb3660b46b8bb23906a77180, type: 3}
   conversation_clip: {fileID: 8300000, guid: cdf4ac9a5b17a534792cb25272bb4400, type: 3}
-  phone: {fileID: 8411080217685815173}
+  phone: {fileID: 8726193438269430589}
   phone_base_socket: {fileID: 4935165605225070008}
   audio_player: {fileID: 3765748621238428284}
 --- !u!1 &1959053759154856084
@@ -695,14 +695,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60523e0647cc6ab43acc73cb266a32a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactors.XRSocketInteractor
---- !u!114 &8411080217685815173 stripped
+--- !u!114 &8726193438269430589 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1289878814045884383, guid: b1f7713952a90dc4d9e6441b8fadef6e, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2037056003893066599, guid: b1f7713952a90dc4d9e6441b8fadef6e, type: 3}
   m_PrefabInstance: {fileID: 7303916201623396442}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ed02081ace6ea74ab9f6f3ffcbd02f5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable
+  m_EditorClassIdentifier: Assembly-CSharp::XRGrabExtension

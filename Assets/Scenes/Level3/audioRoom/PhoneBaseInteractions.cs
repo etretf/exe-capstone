@@ -13,4 +13,14 @@ public class PhoneBaseInteractions : MonoBehaviour
     {
         AudioRoomManager.Instance.DisablePhoneInteraction();
     }
+
+    public void DisableRelease()
+    {
+        AudioRoomManager.Instance.SetCanRelease(false);
+    }
+    public void EnableRelease()
+    {
+        AudioRoomManager.Instance.SetCanRelease(true);
+    }
 }
+
