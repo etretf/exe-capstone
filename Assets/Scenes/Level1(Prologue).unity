@@ -2304,7 +2304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2844,6 +2844,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 963229697}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &117166086 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1717954561962503725, guid: 448ede910356a4b5cbccf644cc711195, type: 3}
+  m_PrefabInstance: {fileID: 441087506}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &117166093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117166086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cb5f7fcba9c88f40be470da8334d662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseManager
+  pauseMenuCanvas: {fileID: 350000257}
+  pauseButtonAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Pause Button
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 240d4cb1-bb4d-4149-a2a4-5ffd4c95eec4
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -8409529528764524023, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &131696187
 GameObject:
   m_ObjectHideFlags: 0
@@ -4931,7 +4961,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &350000258
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5433,7 +5463,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1767192434, guid: 448ede910356a4b5cbccf644cc711195, type: 3}
       insertIndex: -1
       addedObject: {fileID: 350000258}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1717954561962503725, guid: 448ede910356a4b5cbccf644cc711195, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 117166093}
   m_SourcePrefab: {fileID: 100100000, guid: 448ede910356a4b5cbccf644cc711195, type: 3}
 --- !u!4 &441087507 stripped
 Transform:
