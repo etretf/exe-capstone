@@ -6,7 +6,7 @@ public class PhoneBaseInteractions : MonoBehaviour
 {
     public void PickUpPhone()
     {
-        AudioRoomManager.Instance.PlayAudio();
+        AudioRoomManager.Instance.PlayPickedUpPhoneAudio();
     }
 
     public void PlaceDownPhone()

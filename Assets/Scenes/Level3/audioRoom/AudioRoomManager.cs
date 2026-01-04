@@ -7,10 +7,12 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 public class AudioRoomManager : MonoBehaviour
 {
     public static AudioRoomManager Instance;
+    const float PAUSE_BETWEEN_RINGS = 1f;
 
     [SerializeField] private AudioClip static_clip;
     [SerializeField] private AudioClip conversation_clip;
-    [SerializeField] private XRGrabInteractable phone;
+    [SerializeField] private AudioClip ring_clip;
+    [SerializeField] private XRGrabExtension phone;
     [SerializeField] private XRSocketInteractor phone_base_socket;
     [SerializeField] private AudioSource audio_player;
 
@@ -19,9 +21,8 @@ public class AudioRoomManager : MonoBehaviour
 
     private float conversation_clip_time_passed = 0f;
     private float static_clip_time_passed = 0f;
-    private Coroutine conversation_end;
     private GameObject head_trigger;
-    private bool can_grab = true;
+
     private void Awake()
     {
         Instance = this;
@@ -35,7 +36,42 @@ public class AudioRoomManager : MonoBehaviour
         }
     }
 
-    public void PlayAudio()
+    private void OnDestroy()
+    {
+        if (phone == null) 
+            return;
+
+        if (phone.isSelected && phone.firstInteractorSelecting != null)
+        {
+            IXRSelectInteractor interactor = phone.firstInteractorSelecting;
+            phone.interactionManager.SelectExit(interactor, phone);
+        }
+
+        Destroy(phone.gameObject);
+        if (phone != null)
+        {
+            Destroy(phone);
+        }
+    }
+
+    public void PlayRingingAudio()
+    {
+        audio_player.clip = ring_clip;
+        audio_player.loop = false;
+        StartCoroutine(LoopRinging());
+    }
+
+    private IEnumerator LoopRinging()
+    {
+        while (true)
+        {
+            audio_player.Play();
+            yield return new WaitForSeconds(ring_clip.length);
+            yield return new WaitForSeconds(PAUSE_BETWEEN_RINGS);
+        }
+    }
+
+    public void PlayPickedUpPhoneAudio()
     {
         if (is_audio_complete)
             return;
@@ -94,33 +130,20 @@ public class AudioRoomManager : MonoBehaviour
         if (is_audio_complete)
         {
             audio_player.Stop();
-            //phone.interactionLayers = 0;
-            //phone_base_socket.enabled = false;
+            gameObject.GetComponent<Room>().OpenDoor();
             StartCoroutine(DisablePhone());
         }
     }
 
     private IEnumerator DisablePhone()
     {
-        //for (int i = 0; i < 5; i++)
-        //{
-        //    yield return null; // wait one frame
-        //}
         yield return null;
-        phone.enabled = false;
+        phone.GetComponent<XRGrabExtension>().enabled = false;
         phone_base_socket.enabled = false;
-        //phone.interactionLayers = 0;
-        //phone_base_socket.interactionLayers = 0;
-        //phone_base_socket.enabled = false;
     }
 
     public void SetCanRelease(bool enable)
     {
-        can_grab = enable;
-    }
-
-    public bool GetCanRelease()
-    {
-        return can_grab;
+        phone.GetComponent<XRGrabExtension>().SetAllowRelease(enable);
     }
 }

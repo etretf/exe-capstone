@@ -310,6 +310,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1763277165867629938, guid: 7480a88f6a53640c686d775193fae7a0, type: 3}
+      propertyPath: m_Name
+      value: Left Near-Far Interactor
+      objectReference: {fileID: 0}
     - target: {fileID: 1883230248363655243, guid: 7480a88f6a53640c686d775193fae7a0, type: 3}
       propertyPath: m_EnableFarCasting
       value: 0
@@ -341,6 +345,14 @@ PrefabInstance:
     - target: {fileID: 6436123941575367715, guid: 7480a88f6a53640c686d775193fae7a0, type: 3}
       propertyPath: m_CastRadius
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8559622106701032237, guid: 7480a88f6a53640c686d775193fae7a0, type: 3}
+      propertyPath: m_PlayHoverEntered
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748500131873809389, guid: 7480a88f6a53640c686d775193fae7a0, type: 3}
+      propertyPath: m_Name
+      value: Right Near-Far Interactor
       objectReference: {fileID: 0}
     - target: {fileID: 8877177980677234388, guid: 7480a88f6a53640c686d775193fae7a0, type: 3}
       propertyPath: m_EnableFarCasting
@@ -512,6 +524,10 @@ PrefabInstance:
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_Name
       value: XR Device Simulator
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

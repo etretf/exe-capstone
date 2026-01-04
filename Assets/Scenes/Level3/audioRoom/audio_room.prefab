@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
   door: {fileID: 0}
+  room_type: 2
 --- !u!65 &6543170292579570391
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -87,9 +88,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioRoomManager
   static_clip: {fileID: 8300000, guid: 4c610951cb3660b46b8bb23906a77180, type: 3}
   conversation_clip: {fileID: 8300000, guid: cdf4ac9a5b17a534792cb25272bb4400, type: 3}
-  phone: {fileID: 8726193438269430589}
+  ring_clip: {fileID: 8300000, guid: 0b73494724711a9409b8988a3f4895fe, type: 3}
+  phone: {fileID: 6562591311166891550}
   phone_base_socket: {fileID: 4935165605225070008}
-  audio_player: {fileID: 3765748621238428284}
+  audio_player: {fileID: 1605543019805368159}
 --- !u!1 &1959053759154856084
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,14 +676,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1f7713952a90dc4d9e6441b8fadef6e, type: 3}
+--- !u!82 &1605543019805368159 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8292448290170011397, guid: b1f7713952a90dc4d9e6441b8fadef6e, type: 3}
+  m_PrefabInstance: {fileID: 7303916201623396442}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2229005847046202038 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8913674883621094124, guid: b1f7713952a90dc4d9e6441b8fadef6e, type: 3}
-  m_PrefabInstance: {fileID: 7303916201623396442}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &3765748621238428284 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 5845137391986065958, guid: b1f7713952a90dc4d9e6441b8fadef6e, type: 3}
   m_PrefabInstance: {fileID: 7303916201623396442}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &4935165605225070008 stripped
@@ -695,9 +697,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60523e0647cc6ab43acc73cb266a32a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactors.XRSocketInteractor
---- !u!114 &8726193438269430589 stripped
+--- !u!114 &6562591311166891550 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2037056003893066599, guid: b1f7713952a90dc4d9e6441b8fadef6e, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4490013037059720772, guid: b1f7713952a90dc4d9e6441b8fadef6e, type: 3}
   m_PrefabInstance: {fileID: 7303916201623396442}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
