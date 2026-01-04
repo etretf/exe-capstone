@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 
@@ -6,6 +7,12 @@ public class HallwayTile : MonoBehaviour
     public int index;
     [SerializeField] Light tile_light;
     private Door door;
+    public AudioSource light_audio_src;
+    public AudioClip door_delay_sfx;
+    public AudioClip door_open_sfx;
+    public AudioClip door_close_sfx;
+    public AudioClip light_hum_start_sfx;
+    public AudioClip[] light_hum_clips_sfx;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,10 +22,6 @@ public class HallwayTile : MonoBehaviour
 
     private void OnTriggerEnter(UnityEngine.Collider other)
     {
-        if (tile_light != null)
-        {
-            tile_light.enabled = true;
-        }
 
         GameManager.Instance.SetPlayerInHallway();
 
@@ -33,13 +36,42 @@ public class HallwayTile : MonoBehaviour
                 RoomManager.Instance.DestroyRoom();
             }
         }
+
+        // Trigger sounds and turn on light
+        if (light_audio_src != null)
+        {
+            StartCoroutine(playLightSound());
+        }
     }
+
+    IEnumerator playLightSound()
+    {
+        light_audio_src.clip = light_hum_start_sfx;
+        light_audio_src.Play();
+
+        if (tile_light != null)
+        {
+            tile_light.enabled = true;
+        }
+
+        yield return new WaitForSeconds(light_hum_start_sfx.length);
+
+        light_audio_src.clip = light_hum_clips_sfx[Random.Range(0, light_hum_clips_sfx.Length)];
+        light_audio_src.loop = true;
+        light_audio_src.Play();
+    }
+
 
     private void OnTriggerExit(UnityEngine.Collider other)
     {
         if (tile_light != null)
         {
             tile_light.enabled = false;
+        }
+
+        if (light_audio_src != null)
+        {
+            light_audio_src.Stop();
         }
         
     }
