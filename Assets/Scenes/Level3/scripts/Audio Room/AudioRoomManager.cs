@@ -1,24 +1,21 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Audio;
-using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class AudioRoomManager : MonoBehaviour
 {
     public static AudioRoomManager Instance;
-    const float PAUSE_BETWEEN_RINGS = 1f;
-
+    
     [SerializeField] private AudioClip static_clip;
     [SerializeField] private AudioClip conversation_clip;
     [SerializeField] private AudioClip ring_clip;
     [SerializeField] private XRGrabExtension phone;
     [SerializeField] private XRSocketInteractor phone_base_socket;
     [SerializeField] private AudioSource audio_player;
+    [SerializeField] private LevelDelays level_delays;
 
     private bool is_audio_complete = false;
     
-
     private float conversation_clip_time_passed = 0f;
     private float static_clip_time_passed = 0f;
     private GameObject head_trigger;
@@ -36,6 +33,7 @@ public class AudioRoomManager : MonoBehaviour
         }
     }
 
+    //destroy the phone. it seems to sometimes have parenting issues where it parents itself in the first heicharhy layer
     private void OnDestroy()
     {
         if (phone == null) 
@@ -54,6 +52,7 @@ public class AudioRoomManager : MonoBehaviour
         }
     }
 
+    //play ringing audio before the player picks up the phone
     public void PlayRingingAudio()
     {
         audio_player.clip = ring_clip;
@@ -67,21 +66,23 @@ public class AudioRoomManager : MonoBehaviour
         {
             audio_player.Play();
             yield return new WaitForSeconds(ring_clip.length);
-            yield return new WaitForSeconds(PAUSE_BETWEEN_RINGS);
+            yield return new WaitForSeconds(level_delays.pause_between_phone_rings);
         }
     }
 
+    //when the player picks up the phone
     public void PlayPickedUpPhoneAudio()
     {
         if (is_audio_complete)
             return;
 
-        head_trigger = GameObject.FindWithTag("Head");
+        head_trigger = GameObject.FindWithTag(AllConstants.HEAD_TAG);
         head_trigger.GetComponent<Collider>().enabled = true;
         phone_base_socket.enabled = false;
         PlayStaticAudio();
     }
 
+    //play static audio while the phone is away from head
     public void PlayStaticAudio()
     {
         if (audio_player.clip != null && audio_player.clip == conversation_clip) 
@@ -95,6 +96,7 @@ public class AudioRoomManager : MonoBehaviour
         audio_player.Play();
     }
 
+    //play conversation audio while the phone is near head
     public void PlayConverstationAudio()
     {
         if (is_audio_complete)
@@ -112,6 +114,7 @@ public class AudioRoomManager : MonoBehaviour
         
     }
 
+    //enable phone base scoket once the conversation completed playing
     private IEnumerator EnablePhoneBaseSocket (float audio_length)
     {
         yield return new WaitForSeconds(audio_length);
@@ -124,7 +127,7 @@ public class AudioRoomManager : MonoBehaviour
             head_trigger.GetComponent<Collider>().enabled = false;
     }
 
-    //helper function to check diable phone interaction after it has been placed down
+    //prevent phone pick up after it has been placed down
     public void DisablePhoneInteraction()
     { 
         if (is_audio_complete)
@@ -142,6 +145,7 @@ public class AudioRoomManager : MonoBehaviour
         phone_base_socket.enabled = false;
     }
 
+    //disable or enable release. This is to prevent the phone from being released mid-air and only allowing release of it once inside the phone base XRSocketInteractor collider/trigger
     public void SetCanRelease(bool enable)
     {
         phone.GetComponent<XRGrabExtension>().SetAllowRelease(enable);

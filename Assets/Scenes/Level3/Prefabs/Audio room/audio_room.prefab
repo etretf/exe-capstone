@@ -92,6 +92,7 @@ MonoBehaviour:
   phone: {fileID: 6562591311166891550}
   phone_base_socket: {fileID: 4935165605225070008}
   audio_player: {fileID: 1605543019805368159}
+  level_delays: {fileID: 11400000, guid: 8e89d5bcabe0a344ab4920268e1b966a, type: 2}
 --- !u!1 &1959053759154856084
 GameObject:
   m_ObjectHideFlags: 0
