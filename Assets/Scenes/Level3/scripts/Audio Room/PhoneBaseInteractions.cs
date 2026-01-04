@@ -17,10 +17,12 @@ public class PhoneBaseInteractions : MonoBehaviour
     public void DisableRelease()
     {
         AudioRoomManager.Instance.SetCanRelease(false);
+        AudioRoomManager.Instance.HideText();
     }
     public void EnableRelease()
     {
         AudioRoomManager.Instance.SetCanRelease(true);
+        AudioRoomManager.Instance.DisplayPlaceDownText();
     }
 }
 

@@ -13,9 +13,11 @@ public class AudioRoomManager : MonoBehaviour
     [SerializeField] private XRSocketInteractor phone_base_socket;
     [SerializeField] private AudioSource audio_player;
     [SerializeField] private LevelDelays level_delays;
+    [SerializeField] private InstructionalText instructional_text;
 
     private bool is_audio_complete = false;
-    
+
+    private bool is_phone_picked_up = false;
     private float conversation_clip_time_passed = 0f;
     private float static_clip_time_passed = 0f;
     private GameObject head_trigger;
@@ -76,6 +78,7 @@ public class AudioRoomManager : MonoBehaviour
         if (is_audio_complete)
             return;
 
+        is_phone_picked_up = true;
         head_trigger = GameObject.FindWithTag(AllConstants.HEAD_TAG);
         head_trigger.GetComponent<Collider>().enabled = true;
         phone_base_socket.enabled = false;
@@ -121,6 +124,7 @@ public class AudioRoomManager : MonoBehaviour
         Debug.Log("audio clip complete");
         is_audio_complete = true;
         phone_base_socket.enabled = true;
+        instructional_text.SetTextValue("Press the grip button to place down the phone");
         PlayStaticAudio();
 
         if(head_trigger != null)
@@ -149,5 +153,29 @@ public class AudioRoomManager : MonoBehaviour
     public void SetCanRelease(bool enable)
     {
         phone.GetComponent<XRGrabExtension>().SetAllowRelease(enable);
+    }
+
+    //display pick up instructional text
+    public void DisplayPickUpText()
+    {
+        if(!is_phone_picked_up)
+        {
+            instructional_text.Show();
+        }
+    }
+
+    //display place down instructional text 
+    public void DisplayPlaceDownText()
+    {
+        if (is_audio_complete)
+        {
+            instructional_text.Show();
+        }
+    }
+
+    //hide text
+    public void HideText()
+    {
+        instructional_text.Hide();
     }
 }
