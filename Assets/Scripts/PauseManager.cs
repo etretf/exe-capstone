@@ -47,12 +47,9 @@ public class PauseManager : MonoBehaviour
 
     void PositionMenuInFront()
     {
-        // Positions the menu 2 meters in front of the VR headset
         Transform cameraTransform = Camera.main.transform;
-        pauseMenuCanvas.transform.position = cameraTransform.position + cameraTransform.forward * 2.0f;
-
-        // Makes the menu face the player
-        pauseMenuCanvas.transform.LookAt(new Vector3(cameraTransform.position.x, pauseMenuCanvas.transform.position.y, cameraTransform.position.z));
-        pauseMenuCanvas.transform.forward *= -1; // Corrects UI mirroring
+        // Rotate it to face the headset perfectly
+        pauseMenuCanvas.transform.LookAt(cameraTransform.position);
+        pauseMenuCanvas.transform.Rotate(0, 180, 0); // Corrects the UI being backwards
     }
 }
