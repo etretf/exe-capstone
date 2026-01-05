@@ -20,7 +20,7 @@ public class InstructionalText : MonoBehaviour
         gameObject.transform.position = position;
     }
 
-    public void SetTextRoation(Quaternion rotation)
+    public void SetTextRotation(Quaternion rotation)
     {
         gameObject.transform.rotation = rotation;
     }
