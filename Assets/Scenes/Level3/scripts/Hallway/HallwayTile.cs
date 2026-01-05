@@ -23,7 +23,10 @@ public class HallwayTile : MonoBehaviour
     private void OnTriggerEnter(UnityEngine.Collider other)
     {
 
-        GameManager.Instance.SetPlayerInHallway();
+        if (!GameManager.Instance.GetIsPlayerInHallway()) {
+            GameManager.Instance.SetPlayerInHallway();
+            AmbientSoundManager.Instance.fadeInAmbience();
+        }
 
         int previous_tile_index = TileGenerationManager.Instance.current_tile_index;
         if (index != previous_tile_index)
