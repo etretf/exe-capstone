@@ -345,6 +345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Tile
   index: 0
   tile_light: {fileID: 2428795773551653409}
+  hall_tile_model: {fileID: 7908708985983003036}
   light_audio_src: {fileID: 2091195575248819460}
   door_delay_sfx: {fileID: 8300000, guid: c3cb6ecd93e371a458caeb3c4fe4fa74, type: 3}
   door_open_sfx: {fileID: 8300000, guid: 2e64bb668af01eb46b93a9790ff20073, type: 3}
@@ -427,6 +428,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5c37390c90618c8498f4d2f618f94276, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6927390602217919082}
+    - targetCorrespondingSourceObject: {fileID: 5405993126303310893, guid: 5c37390c90618c8498f4d2f618f94276, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7790843968158554839}
   m_SourcePrefab: {fileID: 100100000, guid: 5c37390c90618c8498f4d2f618f94276, type: 3}
 --- !u!4 &2399903540258187866 stripped
 Transform:
@@ -522,6 +526,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.4767127, y: 4.134303, z: 0.73559755}
   m_Center: {x: 1.5214672, y: 2.0895352, z: 1.0488813}
+--- !u!1 &7908708985983003036 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5405993126303310893, guid: 5c37390c90618c8498f4d2f618f94276, type: 3}
+  m_PrefabInstance: {fileID: 2793519230563634609}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7790843968158554839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7908708985983003036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec332962f3bb74149912a29b1f1d2ca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EmissionControl
+  door_emmissive_material: {fileID: 2100000, guid: c612374368e11cf43875d2c845d35bc8, type: 2}
 --- !u!1001 &6586188276834446384
 PrefabInstance:
   m_ObjectHideFlags: 0
