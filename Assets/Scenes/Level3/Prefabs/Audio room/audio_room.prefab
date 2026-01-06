@@ -90,11 +90,14 @@ MonoBehaviour:
   static_clip: {fileID: 8300000, guid: 4c610951cb3660b46b8bb23906a77180, type: 3}
   conversation_clip: {fileID: 8300000, guid: 2b2ee7e742f0f044895acbb7780a0165, type: 3}
   ring_clip: {fileID: 8300000, guid: 392c1945ee20757478fc13d08b292b59, type: 3}
+  phone_pickup_clip: {fileID: 8300000, guid: e51cabcb56f62b046a0afdbca48e87b1, type: 3}
+  phone_place_down_clip: {fileID: 8300000, guid: dae64e9468e4a9a4d9fa1af55fc4e103, type: 3}
   phone: {fileID: 6562591311166891550}
   phone_base_socket: {fileID: 4935165605225070008}
   audio_player: {fileID: 1605543019805368159}
   level_delays: {fileID: 11400000, guid: 8e89d5bcabe0a344ab4920268e1b966a, type: 2}
   instructional_text: {fileID: 6764164547949806709}
+  phone_base_audio_player: {fileID: 5016268074807270713}
 --- !u!1 &1959053759154856084
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,6 +864,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60523e0647cc6ab43acc73cb266a32a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactors.XRSocketInteractor
+--- !u!82 &5016268074807270713 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2360418552852168035, guid: b1f7713952a90dc4d9e6441b8fadef6e, type: 3}
+  m_PrefabInstance: {fileID: 7303916201623396442}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6562591311166891550 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4490013037059720772, guid: b1f7713952a90dc4d9e6441b8fadef6e, type: 3}
