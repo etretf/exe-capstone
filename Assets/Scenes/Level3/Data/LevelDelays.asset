@@ -13,4 +13,3 @@ MonoBehaviour:
   m_Name: LevelDelays
   m_EditorClassIdentifier: Assembly-CSharp::LevelDelays
   door_open_delay_seconds: 1.5
-  pause_between_phone_rings: 1
