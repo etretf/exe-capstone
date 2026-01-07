@@ -21,7 +21,9 @@ public class HallwayTile : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        door = gameObject.GetComponentInChildren<Door>();   
+        door = gameObject.GetComponentInChildren<Door>();
+        if (hall_tile_model != null)
+            hall_tile_model.GetComponent<MeshRenderer>().materials[emission_mat_id].DisableKeyword("_EMISSION");
     }
 
     private void OnTriggerEnter(UnityEngine.Collider other)
