@@ -27,12 +27,12 @@ public class TileGenerationManager : MonoBehaviour
         RoomType.surveillance
     };
 
-    readonly TileLightType[] availableLights =
-    {
-        TileLightType.incorrect_origin,
-        TileLightType.incorrect_shadow,
-        TileLightType.incorrect_temperature
-    };
+    //readonly TileLightType[] availableLights =
+    //{
+    //    TileLightType.incorrect_origin,
+    //    TileLightType.incorrect_shadow,
+    //    TileLightType.incorrect_temperature
+    //};
 
     //hallway pieces
     [SerializeField] GameObject hallway_tile_left_prefab;
@@ -83,7 +83,7 @@ public class TileGenerationManager : MonoBehaviour
         AddTileToRender(tiles[0], 0, TileIndexType.End);
 
         newest_tile_position += (dimensionData.tile_no_door_length / 2f + dimensionData.tile_door_length / 2f);
-        tiles.Add(new TileData(TileType.door_left, RoomType.audio, TileLightType.incorrect_shadow, newest_tile_position, dimensionData.tile_door_length));
+        tiles.Add(new TileData(TileType.door_left, RoomType.audio, TileLightType.incorrect_temperature, newest_tile_position, dimensionData.tile_door_length));
         last_door_tile_type = TileType.door_left;
         AddTileToRender(tiles[1], 1, TileIndexType.End);
         current_tile_index = 1;
@@ -152,7 +152,24 @@ public class TileGenerationManager : MonoBehaviour
             TileLightType lightType = previous_tile.lightType;
             while (lightType == previous_tile.lightType)
             {
-                lightType = availableLights[UnityEngine.Random.Range(0, availableLights.Length)];
+                switch (roomType)
+                {
+                    case RoomType.audio:
+                        lightType = TileLightType.incorrect_temperature;
+                        break;
+                    case RoomType.parasocial:
+                        lightType = TileLightType.incorrect_lamp;
+                        break;
+                    case RoomType.recreation:
+                        lightType = TileLightType.incorrect_radius;
+                        break;
+                    case RoomType.surveillance:
+                        lightType = TileLightType.incorrect_origin;
+                        break;
+                    default:
+                        break;
+                }
+                //lightType = availableLights[UnityEngine.Random.Range(0, availableLights.Length)];
             }
             current_tile.lightType = lightType;
         }
@@ -305,9 +322,9 @@ public class TileGenerationManager : MonoBehaviour
     }
 
     //helper method to access light type at the current index the player is on
-    public TileLightType GetLightTypeAtPlayerLocation()
+    public TileLightType GetLightTypeAtIndex(int tile_index)
     {
-        return tiles[current_tile_index].lightType;
+        return tiles[tile_index].lightType;
     }
 
     //helper to return the door that belongs to the current tile

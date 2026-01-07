@@ -25,6 +25,7 @@ public static class LevelConstants
         normal, 
         incorrect_temperature,
         incorrect_origin,
-        incorrect_shadow,
+        incorrect_radius,
+        incorrect_lamp,
     }
 }
