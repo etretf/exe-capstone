@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236e68e81ad81624cafaef1e9e283edd, type: 3}
   m_Name: LightData
   m_EditorClassIdentifier: Assembly-CSharp::LightData
-  wrong_origin_z_offset: -0.331
-  small_radius_range: 1
-  small_radius_intensity: 1
-  wrong_colour_red: 154
-  wrong_colour_green: 0
-  wrong_colour_blue: 14
+  wrong_origin_z_offset: -0.2
+  wrong_origin_intensity: 4
+  small_radius_range: 3
+  small_radius_intensity: 0.4
+  wrong_colour_red: 186
+  wrong_colour_green: 18
+  wrong_colour_blue: 34
+  wrong_colour_emission_colour: {r: 0, g: 0.99607843, b: 1, a: 1}

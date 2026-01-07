@@ -19,6 +19,8 @@ public class HallwayTile : MonoBehaviour
     public AudioClip door_close_sfx;
     public AudioClip light_hum_start_sfx;
     public AudioClip[] light_hum_clips_sfx;
+    public TileLightType temp_light_type;
+    public RoomType temp_room_type;
     private TileLightType light_type;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -110,10 +112,12 @@ public class HallwayTile : MonoBehaviour
             case TileLightType.incorrect_origin:
                 hall_tile_model.GetComponent<MeshRenderer>().materials[emission_mat_id].EnableKeyword("_EMISSION");
                 tile_light.transform.position = new Vector3(tile_light.transform.position.x, tile_light.transform.position.y, tile_light.transform.position.z + light_data.wrong_origin_z_offset);
+                tile_light.intensity = light_data.wrong_origin_intensity;
                 break;
             case TileLightType.incorrect_temperature:
                 hall_tile_model.GetComponent<MeshRenderer>().materials[emission_mat_id].EnableKeyword("_EMISSION");
-                tile_light.color = new UnityEngine.Color(light_data.wrong_colour_red, light_data.wrong_colour_green, light_data.wrong_colour_blue);
+                hall_tile_model.GetComponent<MeshRenderer>().materials[emission_mat_id].SetColor("_EmissionColor", light_data.wrong_colour_emission_colour);
+                tile_light.color = new Color32(light_data.wrong_colour_red, light_data.wrong_colour_green, light_data.wrong_colour_blue, System.Convert.ToByte(255));
                 break;
             //no case for incorrect_lamp because the only characteristic it has is no emission which is the default.
             default:

@@ -51,6 +51,7 @@ public class TileGenerationManager : MonoBehaviour
     private GameObject hallway_end_instance;
     private GameObject hallway_start_instance;
     private TileType last_door_tile_type;
+    private RoomType previous_room_type;
 
 
     private void Awake()
@@ -86,6 +87,7 @@ public class TileGenerationManager : MonoBehaviour
         tiles.Add(new TileData(TileType.door_left, RoomType.audio, TileLightType.incorrect_temperature, newest_tile_position, dimensionData.tile_door_length));
         last_door_tile_type = TileType.door_left;
         AddTileToRender(tiles[1], 1, TileIndexType.End);
+        previous_room_type = RoomType.audio;
         current_tile_index = 1;
 
         for (int i = 0; i < (MAX_TILES/2)-3; i++) {
@@ -138,15 +140,16 @@ public class TileGenerationManager : MonoBehaviour
         }
 
         //if a correct room was not created then create a incorrect room
-        if(!correct_room_created)
+        if(!correct_room_created && current_tile.tileType != TileType.no_door)
         {
             //get a random incorrect room
-            RoomType roomType = previous_tile.roomType;
-            while (roomType == previous_tile.roomType)
+            RoomType roomType = previous_room_type;
+            while (roomType == previous_room_type)
             {
                 roomType = availableRooms[UnityEngine.Random.Range(0, availableRooms.Length)];
             }
             current_tile.roomType = roomType;
+            previous_room_type = roomType;
 
             //get a random incorrect light
             TileLightType lightType = previous_tile.lightType;
@@ -208,6 +211,11 @@ public class TileGenerationManager : MonoBehaviour
         tile_prefab.transform.position = new Vector3(0, 0, tile.position);
         HallwayTile script = tile_prefab.GetComponent<HallwayTile>();
         script.index = tile_index;
+
+        //temp code. TO REMOVE
+        script.temp_room_type = tile.roomType;
+        script.temp_light_type = tile.lightType;
+        //TO REMOVE - end
 
 
         switch (tile_index_type)
