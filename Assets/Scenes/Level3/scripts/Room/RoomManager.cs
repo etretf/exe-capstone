@@ -80,6 +80,7 @@ public class RoomManager : MonoBehaviour
         if(createdRoom != null && is_room_exists)
         {
             Destroy(createdRoom);
+
             is_room_exists = false;
         }
     }
