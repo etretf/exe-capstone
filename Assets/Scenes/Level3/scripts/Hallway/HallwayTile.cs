@@ -11,6 +11,7 @@ public class HallwayTile : MonoBehaviour
     [SerializeField] GameObject hall_tile_model;
     [SerializeField] int emission_mat_id;
     [SerializeField] LightData light_data;
+    [SerializeField] GameObject hint_text;
 
     private Door door;
     public AudioSource light_audio_src;
@@ -32,6 +33,12 @@ public class HallwayTile : MonoBehaviour
             hall_tile_model.GetComponent<MeshRenderer>().materials[emission_mat_id].DisableKeyword("_EMISSION");
 
         light_type = TileGenerationManager.Instance.GetLightTypeAtIndex(index);
+
+        //display hint text if this is the 7th space tile
+        if(index % HINT_TEXT_NTH_TILE == 0 && index != 0 && hint_text != null)
+        {
+            hint_text.SetActive(true);
+        }
     }
 
     private void OnTriggerEnter(UnityEngine.Collider other)

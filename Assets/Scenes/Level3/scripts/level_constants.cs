@@ -28,4 +28,6 @@ public static class LevelConstants
         incorrect_radius,
         incorrect_lamp,
     }
+
+    public const int HINT_TEXT_NTH_TILE = 4;
 }
