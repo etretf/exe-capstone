@@ -1,8 +1,7 @@
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit.Inputs.Readers;
+
+// Referenced https://www.youtube.com/watch?v=qQqNQ4y-cU8 from Fist Full of Shrimp and the existing ControllerAnimator script
 
 public class HandAnimator : MonoBehaviour
 {
@@ -23,12 +22,22 @@ public class HandAnimator : MonoBehaviour
 
         if (m_GripInput != null)
         {
-            var grip_val = m_GripInput.ReadValue();
+            float grip_val = m_GripInput.ReadValue();
 
             hand_animator.SetFloat("Grip", grip_val);
         } else
         {
             hand_animator.SetFloat("Grip", 0f);
+        }
+
+        if (m_TriggerInput != null)
+        {
+            float trigger_val = m_TriggerInput.ReadValue();
+
+            hand_animator.SetFloat("Trigger", trigger_val);
+        } else
+        {
+            hand_animator.SetFloat("Trigger", 0f);
         }
 
     }
