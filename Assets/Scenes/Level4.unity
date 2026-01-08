@@ -482,7 +482,7 @@ PrefabInstance:
       objectReference: {fileID: 1043789291}
     - target: {fileID: 7972688429875621401, guid: 85f903203dff8bc4eb444721409c931b, type: 3}
       propertyPath: show_tunnel_vignette
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
