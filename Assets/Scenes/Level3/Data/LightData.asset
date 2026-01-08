@@ -19,4 +19,4 @@ MonoBehaviour:
   wrong_colour_red: 186
   wrong_colour_green: 18
   wrong_colour_blue: 34
-  wrong_colour_emission_colour: {r: 0, g: 0.99607843, b: 1, a: 1}
+  wrong_colour_emission_colour: {r: 0.18431373, g: 1, b: 1, a: 1}
