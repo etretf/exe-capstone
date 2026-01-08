@@ -5,6 +5,7 @@ public class AccessibilityControlsManager : MonoBehaviour
     public static AccessibilityControlsManager Instance;
     [SerializeField] GameObject tunnel_vignette_obj;
     [SerializeField] bool show_tunnel_vignette = false;
+    
     private void Awake()
     {
         Instance = this;
