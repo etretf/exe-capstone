@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3393871034391773134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e0c88e9ebf54bd4d96228fdf77c7154, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e97116c65fbb7b4eb8bd003e5e47258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDataManager
-  playerName: 
+  playerName: Rebecca

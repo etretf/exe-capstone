@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 98cce90d46301f1458f4acba8e63f2e4
+guid: e57dea015d7bbac4b831a404f35d9df2
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: txtr_coderooni
-    second: {fileID: 2100000, guid: 453ab90ef28f61141a0fad33adb0ce2d, type: 2}
+    second: {fileID: 2100000, guid: e740f582c2451f646b44f3f3ff3b7a61, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: txtr_coderooniFace
-    second: {fileID: 2100000, guid: 893df674a9cf20141ac52697f47f4dfa, type: 2}
+    second: {fileID: 2100000, guid: 92272a3e199bda949aa19558571761b4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
