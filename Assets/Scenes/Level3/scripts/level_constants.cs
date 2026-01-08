@@ -25,6 +25,9 @@ public static class LevelConstants
         normal, 
         incorrect_temperature,
         incorrect_origin,
-        incorrect_shadow,
+        incorrect_radius,
+        incorrect_lamp,
     }
+
+    public const int HINT_TEXT_NTH_TILE = 4;
 }
