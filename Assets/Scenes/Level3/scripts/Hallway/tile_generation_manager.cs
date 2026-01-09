@@ -336,17 +336,17 @@ public class TileGenerationManager : MonoBehaviour
     }
 
     //helper to return the door that belongs to the current tile
-    public Door GetDoorOfCurrentTile()
+    public HallwayDoor GetDoorOfCurrentTile()
     {
         GameObject current_tile = active_tiles.Find(active_tile => active_tile.GetComponent<HallwayTile>().index == current_tile_index);
-        return current_tile.GetComponentInChildren<Door>();
+        return current_tile.GetComponentInChildren<HallwayDoor>();
     }
 
     //helper to return the door that belongs to a specific active tile
-    public Door GetDoorAtIndex(int tile_index)
+    public HallwayDoor GetDoorAtIndex(int tile_index)
     {
         GameObject tile_at_index = active_tiles.Find(active_tile => active_tile.GetComponent<HallwayTile>().index == tile_index);
-        return tile_at_index.GetComponentInChildren<Door>();
+        return tile_at_index.GetComponentInChildren<HallwayDoor>();
     }
 
 }

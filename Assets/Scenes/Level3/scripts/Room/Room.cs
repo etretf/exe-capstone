@@ -5,7 +5,7 @@ using static LevelConstants;
 
 public class Room : MonoBehaviour
 {
-    public Door door;
+    public HallwayDoor door;
     private bool roomCompleted = false;
     [SerializeField] RoomType room_type;
 

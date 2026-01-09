@@ -13,7 +13,7 @@ public class HallwayTile : MonoBehaviour
     [SerializeField] LightData light_data;
     [SerializeField] GameObject hint_text;
 
-    private Door door;
+    private HallwayDoor door;
     public AudioSource light_audio_src;
     public AudioClip door_delay_sfx;
     public AudioClip door_open_sfx;
@@ -28,7 +28,7 @@ public class HallwayTile : MonoBehaviour
     void Start()
     {
         
-        door = gameObject.GetComponentInChildren<Door>();
+        door = gameObject.GetComponentInChildren<HallwayDoor>();
         if (hall_tile_model != null)
             hall_tile_model.GetComponent<MeshRenderer>().materials[emission_mat_id].DisableKeyword("_EMISSION");
 

@@ -563,7 +563,7 @@ Transform:
   - {fileID: 6082043169343376677}
   - {fileID: 3785768866790848461}
   - {fileID: 2399903540258187866}
-  - {fileID: 7475436898822280833}
+  - {fileID: 8029646424825490919}
   - {fileID: 5317127743834210958}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -744,6 +744,68 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1001 &133620641098762761
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6041494120113254254}
+    m_Modifications:
+    - target: {fileID: 7036999358003538343, guid: f71b0767c9eb08444998b61282239d4a, type: 3}
+      propertyPath: m_Name
+      value: PF_hallway_door
+      objectReference: {fileID: 0}
+    - target: {fileID: 7977493020565006318, guid: f71b0767c9eb08444998b61282239d4a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.807
+      objectReference: {fileID: 0}
+    - target: {fileID: 7977493020565006318, guid: f71b0767c9eb08444998b61282239d4a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.043
+      objectReference: {fileID: 0}
+    - target: {fileID: 7977493020565006318, guid: f71b0767c9eb08444998b61282239d4a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7977493020565006318, guid: f71b0767c9eb08444998b61282239d4a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7977493020565006318, guid: f71b0767c9eb08444998b61282239d4a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7977493020565006318, guid: f71b0767c9eb08444998b61282239d4a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7977493020565006318, guid: f71b0767c9eb08444998b61282239d4a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7977493020565006318, guid: f71b0767c9eb08444998b61282239d4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7977493020565006318, guid: f71b0767c9eb08444998b61282239d4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7977493020565006318, guid: f71b0767c9eb08444998b61282239d4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f71b0767c9eb08444998b61282239d4a, type: 3}
+--- !u!4 &8029646424825490919 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7977493020565006318, guid: f71b0767c9eb08444998b61282239d4a, type: 3}
+  m_PrefabInstance: {fileID: 133620641098762761}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2793519230563634609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -933,65 +995,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EmissionControl
   door_emmissive_material: {fileID: 2100000, guid: c612374368e11cf43875d2c845d35bc8, type: 2}
---- !u!1001 &6002699433680789909
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 6041494120113254254}
-    m_Modifications:
-    - target: {fileID: 3815614398976571156, guid: 237c7abd8cf8e554db4368b598e4fa0b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.807
-      objectReference: {fileID: 0}
-    - target: {fileID: 3815614398976571156, guid: 237c7abd8cf8e554db4368b598e4fa0b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.043
-      objectReference: {fileID: 0}
-    - target: {fileID: 3815614398976571156, guid: 237c7abd8cf8e554db4368b598e4fa0b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3815614398976571156, guid: 237c7abd8cf8e554db4368b598e4fa0b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3815614398976571156, guid: 237c7abd8cf8e554db4368b598e4fa0b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3815614398976571156, guid: 237c7abd8cf8e554db4368b598e4fa0b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3815614398976571156, guid: 237c7abd8cf8e554db4368b598e4fa0b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3815614398976571156, guid: 237c7abd8cf8e554db4368b598e4fa0b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3815614398976571156, guid: 237c7abd8cf8e554db4368b598e4fa0b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3815614398976571156, guid: 237c7abd8cf8e554db4368b598e4fa0b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7679248477272862665, guid: 237c7abd8cf8e554db4368b598e4fa0b, type: 3}
-      propertyPath: m_Name
-      value: PF_door
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 237c7abd8cf8e554db4368b598e4fa0b, type: 3}
---- !u!4 &7475436898822280833 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3815614398976571156, guid: 237c7abd8cf8e554db4368b598e4fa0b, type: 3}
-  m_PrefabInstance: {fileID: 6002699433680789909}
-  m_PrefabAsset: {fileID: 0}
