@@ -9,14 +9,16 @@ public class AudioRoomManager : MonoBehaviour
     [SerializeField] private AudioClip static_clip;
     [SerializeField] private AudioClip conversation_clip;
     [SerializeField] private AudioClip ring_clip;
+    [SerializeField] private AudioClip phone_pickup_clip;
+    [SerializeField] private AudioClip phone_place_down_clip;
     [SerializeField] private XRGrabExtension phone;
     [SerializeField] private XRSocketInteractor phone_base_socket;
     [SerializeField] private AudioSource audio_player;
     [SerializeField] private LevelDelays level_delays;
     [SerializeField] private InstructionalText instructional_text;
+    [SerializeField] private AudioSource phone_base_audio_player;
 
     private bool is_audio_complete = false;
-
     private bool is_phone_picked_up = false;
     private float conversation_clip_time_passed = 0f;
     private float static_clip_time_passed = 0f;
@@ -78,6 +80,9 @@ public class AudioRoomManager : MonoBehaviour
         if (is_audio_complete)
             return;
 
+        phone_base_audio_player.clip = phone_pickup_clip;
+        phone_base_audio_player.Play();
+
         is_phone_picked_up = true;
         head_trigger = GameObject.FindWithTag(AllConstants.HEAD_TAG);
         head_trigger.GetComponent<Collider>().enabled = true;
@@ -117,7 +122,7 @@ public class AudioRoomManager : MonoBehaviour
         
     }
 
-    //enable phone base scoket once the conversation completed playing
+    //enable phone base socket once the conversation completed playing
     private IEnumerator EnablePhoneBaseSocket (float audio_length)
     {
         yield return new WaitForSeconds(audio_length);
@@ -136,10 +141,19 @@ public class AudioRoomManager : MonoBehaviour
     { 
         if (is_audio_complete)
         {
+            phone_base_audio_player.clip = phone_place_down_clip;
+            phone_base_audio_player.Play();
+
             audio_player.Stop();
-            gameObject.GetComponent<Room>().OpenDoor();
+            StartCoroutine(DelayOpenDoor(2.0f));
             StartCoroutine(DisablePhone());
         }
+    }
+
+    private IEnumerator DelayOpenDoor(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        gameObject.GetComponent<Room>().OpenDoor();
     }
 
     private IEnumerator DisablePhone()

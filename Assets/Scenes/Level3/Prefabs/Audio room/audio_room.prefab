@@ -88,13 +88,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioRoomManager
   static_clip: {fileID: 8300000, guid: 4c610951cb3660b46b8bb23906a77180, type: 3}
-  conversation_clip: {fileID: 8300000, guid: cdf4ac9a5b17a534792cb25272bb4400, type: 3}
-  ring_clip: {fileID: 8300000, guid: 0b73494724711a9409b8988a3f4895fe, type: 3}
+  conversation_clip: {fileID: 8300000, guid: 2b2ee7e742f0f044895acbb7780a0165, type: 3}
+  ring_clip: {fileID: 8300000, guid: 392c1945ee20757478fc13d08b292b59, type: 3}
+  phone_pickup_clip: {fileID: 8300000, guid: e51cabcb56f62b046a0afdbca48e87b1, type: 3}
+  phone_place_down_clip: {fileID: 8300000, guid: dae64e9468e4a9a4d9fa1af55fc4e103, type: 3}
   phone: {fileID: 6562591311166891550}
   phone_base_socket: {fileID: 4935165605225070008}
   audio_player: {fileID: 1605543019805368159}
   level_delays: {fileID: 11400000, guid: 8e89d5bcabe0a344ab4920268e1b966a, type: 2}
   instructional_text: {fileID: 6764164547949806709}
+  phone_base_audio_player: {fileID: 5016268074807270713}
 --- !u!1 &1959053759154856084
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,6 +766,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_full_phone
       objectReference: {fileID: 0}
+    - target: {fileID: 8292448290170011397, guid: b1f7713952a90dc4d9e6441b8fadef6e, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8292448290170011397, guid: b1f7713952a90dc4d9e6441b8fadef6e, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.519
+      objectReference: {fileID: 0}
     - target: {fileID: 8913674883621094124, guid: b1f7713952a90dc4d9e6441b8fadef6e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -806,8 +817,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7547477516148880733, guid: b1f7713952a90dc4d9e6441b8fadef6e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8809722391229358790}
   m_SourcePrefab: {fileID: 100100000, guid: b1f7713952a90dc4d9e6441b8fadef6e, type: 3}
+--- !u!1 &1000572926077342983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7547477516148880733, guid: b1f7713952a90dc4d9e6441b8fadef6e, type: 3}
+  m_PrefabInstance: {fileID: 7303916201623396442}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8809722391229358790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000572926077342983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a07f270ac36c49789466c75ceb88424c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Meta.XR.Audio::MetaXRAudioSource
+  enableSpatialization: 1
+  gainBoostDb: 0
+  enableAcoustics: 1
+  reverbSendDb: 0
 --- !u!82 &1605543019805368159 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8292448290170011397, guid: b1f7713952a90dc4d9e6441b8fadef6e, type: 3}
@@ -829,6 +864,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60523e0647cc6ab43acc73cb266a32a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactors.XRSocketInteractor
+--- !u!82 &5016268074807270713 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2360418552852168035, guid: b1f7713952a90dc4d9e6441b8fadef6e, type: 3}
+  m_PrefabInstance: {fileID: 7303916201623396442}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6562591311166891550 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4490013037059720772, guid: b1f7713952a90dc4d9e6441b8fadef6e, type: 3}
