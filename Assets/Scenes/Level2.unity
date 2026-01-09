@@ -1554,6 +1554,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1767192434, guid: 3d4cca267148847519b1cc01e8b790f9, type: 3}
   m_PrefabInstance: {fileID: 441087506}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &441087508 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5167925059111895691, guid: 3d4cca267148847519b1cc01e8b790f9, type: 3}
+  m_PrefabInstance: {fileID: 441087506}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &677054175
 GameObject:
   m_ObjectHideFlags: 0
@@ -4587,6 +4592,10 @@ PrefabInstance:
       propertyPath: m_Alpha
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4854805230346622314, guid: 0f2af964006a9af4a9ccabe2b77bda4f, type: 3}
+      propertyPath: locomotion
+      value: 
+      objectReference: {fileID: 441087508}
     - target: {fileID: 4854805230346622314, guid: 0f2af964006a9af4a9ccabe2b77bda4f, type: 3}
       propertyPath: fade_in_at_start
       value: 1
