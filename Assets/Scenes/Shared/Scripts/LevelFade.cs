@@ -9,8 +9,9 @@ public class LevelFade : MonoBehaviour
 {
     public static LevelFade Instance;
 
-    [SerializeField] CanvasGroup fade_canvas_group;
+    [SerializeField] private CanvasGroup fade_canvas_group;
     [SerializeField] private bool fade_in_at_start;
+    [SerializeField] private GameObject locomotion;
 
     const float TARGET_FADE_TIME = 0.5f;
 
@@ -40,16 +41,20 @@ public class LevelFade : MonoBehaviour
     //load the next level
     private IEnumerator NextLevel()
     {
+        // disable movement
+        locomotion.SetActive(false);
+
+        //fade to black and load next level
         yield return StartCoroutine(ScreenFade(0f, 1f));
         AsyncOperation operation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
-        operation.allowSceneActivation = false;
+        //operation.allowSceneActivation = false;
 
-        //yield return new WaitForSeconds(TARGET_FADE_TIME);
-        while (operation.progress < 0.9f) { 
-            yield return null;
-        }
+        //////wait until 
+        ////while (operation.progress < 0.9f) { 
+        ////    yield return null;
+        ////}
 
-        operation.allowSceneActivation = true;
+        //operation.allowSceneActivation = true;
     }
 
     //fades the screen to black or out
