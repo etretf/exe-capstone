@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using static LevelConstants;
 
@@ -18,7 +19,7 @@ public class Room : MonoBehaviour
             switch(room_type)
             {
                 case RoomType.audio:
-                    AudioRoomManager.Instance.PlayRingingAudio();
+                    StartCoroutine(fadeSound());
                     break;
                 default:
                     break;
@@ -35,5 +36,12 @@ public class Room : MonoBehaviour
             roomCompleted = true;
         }
         
+    }
+
+    IEnumerator fadeSound()
+    {
+        AmbientSoundManager.Instance.fadeOutAmbience();
+        yield return new WaitForSeconds(2.0f);
+        AudioRoomManager.Instance.PlayRingingAudio();
     }
 }
