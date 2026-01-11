@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
   door: {fileID: 0}
+  room_type: 0
 --- !u!65 &6543170292579570391
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -575,7 +576,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3036521955322547851, guid: 7271336ff1a5f254db93cdca15a00383, type: 3}
+  - {fileID: -8848810374240701247, guid: 436757056de26e144b330984c539cecd, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -34,7 +34,7 @@ public class RoomManager : MonoBehaviour
         RoomType room = TileGenerationManager.Instance.GetRoomTypeAtPlayerLocation();
         TileType tile = TileGenerationManager.Instance.GetTileTypeAtPlayerLocation();
         float z_position = TileGenerationManager.Instance.GetPositionAtPlayerLocation();
-        Door tile_door = TileGenerationManager.Instance.GetDoorOfCurrentTile();
+        HallwayDoor tile_door = TileGenerationManager.Instance.GetDoorOfCurrentTile();
 
         float x_position = -1 * dimensionData.tile_width/2;
         float rotation = 0;

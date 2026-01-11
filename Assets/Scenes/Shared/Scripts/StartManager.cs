@@ -13,6 +13,21 @@ public class GameStartMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(1); // Level 1 (build index)
+        LevelFade.Instance.LoadNextLevel();
+    }
+
+    public void StartLevel2()
+    {
+        LevelFade.Instance.LoadLevel(2);
+    }
+
+    public void StartLevel3()
+    {
+        LevelFade.Instance.LoadLevel(3);
+    }
+
+    public void StartLevel4()
+    {
+        LevelFade.Instance.LoadLevel(4);
     }
 }
