@@ -35,18 +35,23 @@ public class LevelFade : MonoBehaviour
     }
 
     public void LoadNextLevel() {
-        StartCoroutine(NextLevel());
+        StartCoroutine(NextLevel(SceneManager.GetActiveScene().buildIndex + 1));
+    }
+
+    public void LoadLevel(int level_index)
+    {
+        StartCoroutine(NextLevel(level_index));
     }
 
     //load the next level
-    private IEnumerator NextLevel()
+    private IEnumerator NextLevel(int level_index)
     {
         // disable movement
         locomotion.SetActive(false);
 
         //fade to black and load next level
         yield return StartCoroutine(ScreenFade(0f, 1f));
-        AsyncOperation operation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(level_index);
         //operation.allowSceneActivation = false;
 
         //////wait until 

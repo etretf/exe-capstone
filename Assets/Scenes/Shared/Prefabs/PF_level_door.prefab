@@ -240,8 +240,8 @@ MonoBehaviour:
   m_Activated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4716491463536583820}
-        m_TargetAssemblyTypeName: Door, Assembly-CSharp
+      - m_Target: {fileID: 5589225489129200255}
+        m_TargetAssemblyTypeName: LevelDoorActions, Assembly-CSharp
         m_MethodName: OpenDoor
         m_Mode: 1
         m_Arguments:
