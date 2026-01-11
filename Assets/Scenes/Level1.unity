@@ -1526,14 +1526,14 @@ GameObject:
   - component: {fileID: 119641773}
   - component: {fileID: 119641776}
   - component: {fileID: 119641775}
-  - component: {fileID: 119641774}
+  - component: {fileID: 119641777}
   m_Layer: 0
   m_Name: slackPopup (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &119641773
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1554,23 +1554,6 @@ RectTransform:
   m_AnchoredPosition: {x: 31.5625, y: -11.7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &119641774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 119641772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14aa39dbfd5abf842b1c2121c1427393, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlackPopupController
-  slackPopup: {fileID: 119641772}
-  slackPopupButton: {fileID: 2078501871}
-  autoShowDelay: 2
-  mainScreen: {fileID: 377803637}
-  messagingPanel: {fileID: 1944331122}
 --- !u!114 &119641775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1609,6 +1592,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119641772}
   m_CullTransparentMesh: 1
+--- !u!114 &119641777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119641772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b3a9966aa12c1409756e0c273c57fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossPopupSequence
+  bossSlackPopup: {fileID: 119641772}
+  openButton: {fileID: 2078501871}
+  bossMessagingPanel: {fileID: 193589537}
 --- !u!224 &129924101 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2302245245001289378, guid: 7db4883a1fcf6884fb42c4971e40bca3, type: 3}
@@ -2161,7 +2159,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &158575738
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2602,12 +2600,12 @@ GameObject:
   - component: {fileID: 193589540}
   - component: {fileID: 193589539}
   m_Layer: 0
-  m_Name: messagingPanel (1)
+  m_Name: bossMessagingPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &193589538
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2649,7 +2647,7 @@ MonoBehaviour:
   delayMsg2: 1.2
   delayMsg3: 1.2
   quizButton: {fileID: 0}
-  quizPanel: {fileID: 69659965}
+  quizPanel: {fileID: 0}
   messagePanel: {fileID: 193589537}
 --- !u!114 &193589540
 MonoBehaviour:
@@ -4732,7 +4730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &376216960
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6016,7 +6014,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 540491243}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1723968024}
+        m_TargetAssemblyTypeName: PostQuizSequence, Assembly-CSharp
+        m_MethodName: GoToDownload
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &540491243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7654,7 +7664,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 807045724}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 119641777}
+        m_TargetAssemblyTypeName: BossPopupSequence, Assembly-CSharp
+        m_MethodName: ShowBossPopup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &807045724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8251,7 +8273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &921622893
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16513,6 +16535,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuizManager
   debugStatusText: {fileID: 0}
   saveKeyPrefix: QUIZ_
+  quizPanel: {fileID: 69659965}
+  resultsPanel: {fileID: 158575737}
 --- !u!4 &1705974907
 Transform:
   m_ObjectHideFlags: 0
@@ -16785,6 +16809,56 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &1723968023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1723968025}
+  - component: {fileID: 1723968024}
+  m_Layer: 0
+  m_Name: SequenceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1723968024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723968023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced96827521e52342b310005df789286, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PostQuizSequence
+  resultsPanel: {fileID: 158575737}
+  downloadPanel: {fileID: 921622892}
+  coderooniPanel: {fileID: 376216959}
+  bossSlackPopup: {fileID: 119641772}
+  bossMessagingPanel: {fileID: 193589537}
+  coderooniDelay: 2.5
+--- !u!4 &1723968025
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723968023}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1746522376
 GameObject:
   m_ObjectHideFlags: 0
@@ -21960,3 +22034,4 @@ SceneRoots:
   - {fileID: 1009493822}
   - {fileID: 145200129}
   - {fileID: 1211770297}
+  - {fileID: 1723968025}

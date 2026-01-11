@@ -12,6 +12,9 @@ public class QuizManager : MonoBehaviour
 
     private Dictionary<string, string> answers = new Dictionary<string, string>();
 
+    public GameObject quizPanel;
+    public GameObject resultsPanel;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -58,6 +61,8 @@ public class QuizManager : MonoBehaviour
 
         if (debugStatusText != null)
             debugStatusText.text = "Quiz submitted + saved!";
+        if (quizPanel != null) quizPanel.SetActive(false);
+        if (resultsPanel != null) resultsPanel.SetActive(true);
     }
 
     public void ClearAll()
